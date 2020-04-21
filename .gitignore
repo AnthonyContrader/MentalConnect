@@ -24,9 +24,6 @@ local.properties
 # Locally stored "Eclipse launch configurations"
 *.launch
 
-# Compiled class file
-*.class
-
 # Log file
 *.log
 
