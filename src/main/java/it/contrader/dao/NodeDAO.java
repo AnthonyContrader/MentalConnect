@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.main.ConnectionSingleton;
-import it.contrader.model.User;
 import java.sql.*;
 import it.contrader.model.Node;
 
