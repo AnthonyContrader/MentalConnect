@@ -20,8 +20,8 @@ public  FolderReadView() {
 
 public void showResults(Request request) {
 	if (request != null) {
-		FolderDTO idFolder = (FolderDTO) request.get("idFolder");
-		System.out.println(idFolder);
+		FolderDTO folder = (FolderDTO) request.get("folder");
+		System.out.println(folder);
 		MainDispatcher.getInstance().callView("Folder", null);
 	}
 }

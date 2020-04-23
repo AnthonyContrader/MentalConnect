@@ -15,9 +15,9 @@ import it.contrader.main.ConnectionSingleton;
 
 public class FolderDAO {
 	private final String QUERY_ALL = "SELECT * FROM folder";
-	private final String QUERY_CREATE = "INSERT INTO folder (idUser, nameFolder,) VALUES (?,?)";
+	private final String QUERY_CREATE = "INSERT INTO folder (idUser, nameFolder) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM folder WHERE idFolder=?";
-	private final String QUERY_UPDATE = "UPDATE folder SET nameFolder=?,   WHERE idFolder=?";
+	private final String QUERY_UPDATE = "UPDATE folder SET nameFolder=? WHERE idFolder=?";
 	private final String QUERY_DELETE = "DELETE FROM folder WHERE idFolder=?";
 
 	public FolderDAO() {}
@@ -48,8 +48,10 @@ public class FolderDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-			preparedStatement.setString(1, folderToInsert.getNameFolder());
-			preparedStatement.setInt(2, folderToInsert.getIdUser());
+			System.out.println(folderToInsert.getNameFolder());
+			preparedStatement.setInt(1, folderToInsert.getIdUser());
+			preparedStatement.setString(2, folderToInsert.getNameFolder());
+	
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -71,11 +73,11 @@ public class FolderDAO {
 			int idUser;
 
 			nameFolder = resultSet.getString("nameFolder");
-			
 			idUser = resultSet.getInt("idUser");
+			
 			Folder folder= new Folder(nameFolder , idUser);
 			folder.setIdFolder(resultSet.getInt("idFolder"));
-
+		
 			return folder;
 		} catch (SQLException e) {
 			return null;
@@ -85,25 +87,25 @@ public class FolderDAO {
 
 	public boolean update(Folder folderToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
-
+	
 		
 		if (folderToUpdate.getIdFolder() == 0)
 			return false;
-
+		
 		Folder folderRead = read(folderToUpdate.getIdFolder());
+		System.out.println(folderToUpdate.getNameFolder() + " "+ folderRead.getNameFolder());
 		if (!folderRead.equals(folderToUpdate)) {
+		
 			try {
 			
 				if (folderToUpdate.getNameFolder() == null || folderToUpdate.getNameFolder().equals("")) {
 					folderToUpdate.setNameFolder(folderRead.getNameFolder());
-			
 				}
-
-				
+			
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, folderToUpdate.getNameFolder());
-				
 				preparedStatement.setInt(2, folderToUpdate.getIdFolder());
+				
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

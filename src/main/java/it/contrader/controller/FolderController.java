@@ -45,6 +45,7 @@ public class FolderController implements Controller {
 			FolderDTO folderDTO = folderService.read(idFolder);
 			request.put("folder", folderDTO);
 			MainDispatcher.getInstance().callView(sub_package + "FolderRead", request);
+			
 			break;
 		
 		
@@ -87,6 +88,7 @@ public class FolderController implements Controller {
 			
 		 
 		case "FOLDERLIST":
+	
 			List<FolderDTO> foldersDTO = folderService.getAll();
 			
 			request.put("folders", foldersDTO);

@@ -26,7 +26,7 @@ public FolderView() {
 			System.out.println("----------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")
-			List<FolderDTO> folder = (List<FolderDTO>) request.get("folder");
+			List<FolderDTO> folder = (List<FolderDTO>) request.get("folders");
 			for (FolderDTO u: folder)
 				System.out.println(u);
 			System.out.println();

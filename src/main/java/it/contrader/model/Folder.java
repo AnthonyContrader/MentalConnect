@@ -79,6 +79,8 @@ public Folder() {}
 				return false;
 			if (idUser != other.idUser)
 				return false;
+			if (nameFolder != other.nameFolder)
+				return false;
 			
 		
 			return true;

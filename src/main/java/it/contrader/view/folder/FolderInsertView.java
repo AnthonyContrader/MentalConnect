@@ -29,7 +29,8 @@ public class FolderInsertView extends AbstractView {
 	@Override
 	public void showOptions() {
 			System.out.println("Inserisci ID user:");
-			idUser = Integer.parseInt(request.get("idUser").toString());
+			idUser = Integer.parseInt(getInput());
+			//idUser = Integer.parseInt(request.get("idUser").toString());
 			System.out.println("Inserisci nome cartella:");
 			nameFolder = getInput();
 			
