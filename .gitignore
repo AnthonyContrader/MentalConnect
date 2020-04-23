@@ -45,5 +45,5 @@ local.properties
 hs_err_pid*
 /target/
 /bin/
-dbconfig.properties
+config.properties
 database.yml
