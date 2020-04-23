@@ -9,10 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.main.ConnectionSingleton;
-import it.contrader.model.User;
 import it.contrader.model.Map;
 
-public class MapDao {
+public class MapDAO {
 	
 	private final String QUERY_ALL = "SELECT * FROM map";
 	private final String QUERY_CREATE = "INSERT INTO map (idUser) VALUES (?)";
@@ -20,7 +19,7 @@ public class MapDao {
 	//private final String QUERY_UPDATE = "UPDATE map SET username=?, password=?, usertype=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM map WHERE idMap=?";
 	
-	public MapDao() {}
+	public MapDAO() {}
 	
 	public List<Map> getAll() {
 		List<Map> mapList = new ArrayList<>();
