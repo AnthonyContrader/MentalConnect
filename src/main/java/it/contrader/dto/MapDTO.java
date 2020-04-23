@@ -1,6 +1,6 @@
-package it.contrader.model;
+package it.contrader.dto;
 
-public class Map {
+public class MapDTO {
 	private int idMap;
 	private int idCartella;
 	private String mapName;
@@ -26,40 +26,21 @@ public class Map {
 		this.idCartella = idCartella;
 	}
 	
-	public Map() {}
+	public MapDTO() {}
 	
-	public Map(int idCartella, String mapName) {
+	public MapDTO(int idCartella, String mapName) {
 		this.idCartella = idCartella;
 		this.mapName = mapName;
 	}
 	
-	public Map(int idMap, int idCartella, String mapName) {
+	public MapDTO(int idMap, int idCartella, String mapName) {
 		this.idMap = idMap;
 		this.idCartella = idCartella;
 		this.mapName = mapName;
 	}
 	
-	 @Override
+	@Override
 	public String toString() {
-		return idMap + "\t" + mapName  + "\t\t" +idCartella  ;
+		return idMap + "\t" + mapName  + "\t" +idCartella  ;
 	}
-	 
-	 @Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			Map other = (Map) obj;
-			if (idMap != other.idMap)
-				return false;
-			if (idCartella != other.idCartella)
-				return false;
-		
-			return true;
-		}
-	
-	
 }

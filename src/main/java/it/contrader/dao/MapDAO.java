@@ -7,16 +7,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Map;
+
 
 public class MapDAO {
 	
 	private final String QUERY_ALL = "SELECT * FROM map";
-	private final String QUERY_CREATE = "INSERT INTO map (idUser) VALUES (?)";
+	private final String QUERY_CREATE = "INSERT INTO map (idCartella) VALUES (?)";
 	private final String QUERY_READ = "SELECT * FROM map WHERE idMap=?";
-	//private final String QUERY_UPDATE = "UPDATE map SET username=?, password=?, usertype=? WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE map SET mapName=?, WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM map WHERE idMap=?";
 	
 	public MapDAO() {}
@@ -30,8 +30,9 @@ public class MapDAO {
 			Map map;
 			while (resultSet.next()) {
 				int idMap = resultSet.getInt("idMap");
-				int idUser = resultSet.getInt("idUser");
-				map = new Map(idMap, idUser);
+				int idCartella = resultSet.getInt("idCartella");
+				String mapName = resultSet.getString("mapName");
+				map = new Map(idMap, idCartella, mapName);
 				//map.setIdMap(idMap);
 				mapList.add(map);
 			}
@@ -45,7 +46,7 @@ public class MapDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-			preparedStatement.setInt(1, map.getIdUser());
+			preparedStatement.setInt(1, map.getIdCartella());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -64,8 +65,10 @@ public class MapDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			
-			int idUser = resultSet.getInt("idUser");
-			Map map = new Map(mapId, idUser);
+			int idCartella = resultSet.getInt("idCartella");
+			String mapName = resultSet.getString("mapName");
+			
+			Map map = new Map(mapId, idCartella, mapName);
 			
 			return map;
 		} catch (SQLException e) {
@@ -74,37 +77,32 @@ public class MapDAO {
 
 	}
 	
-	/*   TODO: UPDATE MAP
-	 * 
-	 * public boolean update(User userToUpdate) {
+	
+	public boolean update(Map mapToUpdate) {
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
-		if (userToUpdate.getId() == 0)
+		if (mapToUpdate.getIdMap() == 0)
 			return false;
 
-		User userRead = read(userToUpdate.getId());
-		if (!userRead.equals(userToUpdate)) {
+		Map mapRead = read(mapToUpdate.getIdMap());
+		if (!mapRead.equals(mapToUpdate)) {
 			try {
 				// Fill the userToUpdate object
-				if (userToUpdate.getUsername() == null || userToUpdate.getUsername().equals("")) {
-					userToUpdate.setUsername(userRead.getUsername());
+				if (mapToUpdate.getIdCartella() != 0 ) {
+					mapToUpdate.setIdMap(mapRead.getIdCartella());
 				}
-
-				if (userToUpdate.getPassword() == null || userToUpdate.getPassword().equals("")) {
-					userToUpdate.setPassword(userRead.getPassword());
+				if (mapToUpdate.getMapName() == null || mapToUpdate.getMapName().equals("") ) {
+					mapToUpdate.setMapName(mapRead.getMapName());
 				}
-
-				if (userToUpdate.getUsertype() == null || userToUpdate.getUsertype().equals("")) {
-					userToUpdate.setUsertype(userRead.getUsertype());
-				}
+								
 
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-				preparedStatement.setString(1, userToUpdate.getUsername());
-				preparedStatement.setString(2, userToUpdate.getPassword());
-				preparedStatement.setString(3, userToUpdate.getUsertype());
-				preparedStatement.setInt(4, userToUpdate.getId());
+				preparedStatement.setString(1, mapToUpdate.getMapName());
+				
+				preparedStatement.setInt(2, mapToUpdate.getIdMap());
+				
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;
@@ -119,7 +117,7 @@ public class MapDAO {
 		return false;
 
 	}
-	 * */
+	
 	
 	public boolean delete(int idMap) {
 		Connection connection = ConnectionSingleton.getInstance();
