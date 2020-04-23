@@ -30,7 +30,7 @@ public class NodeDeleteView extends AbstractView {
 	 */
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci id dell'utente:");
+			System.out.println("Inserisci ID del nodo da eliminare:");
 			id = Integer.parseInt(getInput());
 
 	}

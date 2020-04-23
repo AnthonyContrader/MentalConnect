@@ -1,5 +1,8 @@
 package it.contrader.view;
+import java.util.List;
+
 import it.contrader.controller.Request;
+import it.contrader.dto.NodeDTO;
 import it.contrader.main.MainDispatcher;
 
 public class NodeView extends AbstractView{
@@ -10,14 +13,20 @@ public class NodeView extends AbstractView{
 	@Override
 	public void showResults(Request request) {
 		if(request!=null) {	
-			System.out.println(" Seleziona cosa vuoi gestire:");
+			System.out.println("-------------MENU NODO------------\n");
+			
+			@SuppressWarnings("unchecked")
+			List<NodeDTO> nodes = (List<NodeDTO>) request.get("nodes");
+			for (NodeDTO u: nodes)
+				System.out.println(u);
+			System.out.println();
+		
     	}
 	}
 
 	@Override
 	public void showOptions() {
-		System.out.println("-------------MENU NODO------------\n");
-		System.out.println("L[eggi] [I]nserisci nodo [C]ancella nodo [M]odifica nodo [C]ancella [E]sci [B]ack");
+		System.out.println("L[eggi] [I]nserisci nodo [C]ancella nodo [M]odifica nodo [E]sci [B]ack");
 		choice = this.getInput();
 	}
 
@@ -26,7 +35,7 @@ public class NodeView extends AbstractView{
 		request = new Request();
 		request.put("choice", choice);
 		request.put("mode", "GETCHOICE");
-		MainDispatcher.getInstance().callAction("User", "doControl", this.request);
+		MainDispatcher.getInstance().callAction("Node", "doControl", this.request);
 	}
 	
 	

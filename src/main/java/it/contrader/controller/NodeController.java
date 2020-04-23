@@ -7,7 +7,7 @@ import it.contrader.main.MainDispatcher;
 import it.contrader.service.NodeService;
 
 public class NodeController implements Controller{
-private static String sub_package = "user.";
+private static String sub_package = "node.";
 	
 	private NodeService nodeService;
 	/**
@@ -61,7 +61,7 @@ private static String sub_package = "user.";
 			request = new Request();
 			request.put("mode", "mode");
 			//Rimanda alla view con la risposta
-			MainDispatcher.getInstance().callView(sub_package + "UserInsert", request);
+			MainDispatcher.getInstance().callView(sub_package + "NodeInsert", request);
 			break;
 		
 		case "DELETE":
@@ -70,19 +70,19 @@ private static String sub_package = "user.";
 			nodeService.delete(id);
 			request = new Request();
 			request.put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "UserDelete", request);
+			MainDispatcher.getInstance().callView(sub_package + "NodeDelete", request);
 			break;
 		
 		case "UPDATE":
-			id = Integer.parseInt(request.get("id").toString());
+			id = Integer.parseInt(request.get("idNode").toString());
 			text = request.get("text").toString();
 			idMap =  Integer.parseInt(request.get("idMap").toString());
-			
+
 			NodeDTO nodetoupdate = new NodeDTO(id, text, idMap);
 			nodeService.update(nodetoupdate);
 			request = new Request();
 			request.put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "UserUpdate", request);
+			MainDispatcher.getInstance().callView(sub_package + "NodeUpdate", request);
 			break;
 			
 		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 

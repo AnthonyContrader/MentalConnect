@@ -53,7 +53,7 @@ public class NodeUpdateView extends AbstractView{
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("id", id);
+		request.put("idNode", id);
 		request.put("text", text);
 		request.put("idMap", idMap);
 		request.put("mode", mode);

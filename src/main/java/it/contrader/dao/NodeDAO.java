@@ -13,7 +13,7 @@ import it.contrader.model.Node;
 
 public class NodeDAO {
 	private final String QUERY_ALL = "SELECT * FROM node";
-	private final String QUERY_CREATE = "INSERT INTO node (idNode, text, idMap) VALUES (?,?,?)";
+	private final String QUERY_CREATE = "INSERT INTO node (text, idMap) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM node WHERE idNode=?";
 	private final String QUERY_UPDATE = "UPDATE node SET text=?, idMap=? WHERE idNode=?";
 	private final String QUERY_DELETE = "DELETE FROM node WHERE idNode=?";
@@ -47,7 +47,7 @@ public class NodeDAO {
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, nodeToInsert.getText());
-			preparedStatement.setInt(3, nodeToInsert.getIdMap());
+			preparedStatement.setInt(2, nodeToInsert.getIdMap());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -94,11 +94,14 @@ public class NodeDAO {
 				if (nodeToUpdate.getText() == null || nodeToUpdate.getText().equals("")) {
 					nodeToUpdate.setText(nodeRead.getText());
 				}
+				if (nodeToUpdate.getIdMap() <= 0 || String.valueOf(nodeToUpdate.getIdMap()).equals("")) {
+					nodeToUpdate.setIdMap(nodeRead.getIdMap());
+				}
 
-
-				// Update the user
+				// Update the node
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, nodeToUpdate.getText());
+				preparedStatement.setInt(2, nodeToUpdate.getIdMap());
 				preparedStatement.setInt(3, nodeToUpdate.getIdNode());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)

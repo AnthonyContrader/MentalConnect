@@ -45,8 +45,7 @@ public class Node {
 	public String toString() {
 		return  idNode + "\t"  +   text + "\t\t" + idMap;
 	}
-	
-	//Metodo per il confronto degli oggetti
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -56,8 +55,18 @@ public class Node {
 		if (getClass() != obj.getClass())
 			return false;
 		Node other = (Node) obj;
-		if (idNode!= other.idNode)
+		if (idMap != other.idMap)
+			return false;
+		if (idNode != other.idNode)
+			return false;
+		if (text == null) {
+			if (other.text != null)
+				return false;
+		} else if (!text.equals(other.text))
 			return false;
 		return true;
 	}
+	
+	//Metodo per il confronto degli oggetti
+
 }
