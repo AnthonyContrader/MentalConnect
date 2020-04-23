@@ -121,11 +121,11 @@ public class FolderDAO {
 
 	}
 
-	public boolean delete(int id) {
+	public boolean delete(int idFolder) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
-			preparedStatement.setInt(1, id);
+			preparedStatement.setInt(1, idFolder);
 			int n = preparedStatement.executeUpdate();
 			if (n != 0)
 				return true;
