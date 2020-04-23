@@ -1,6 +1,9 @@
 package it.contrader.view;
 
+import java.util.List;
+
 import it.contrader.controller.Request;
+import it.contrader.dto.LinkDTO;
 import it.contrader.main.MainDispatcher;
 
 public class LinkView extends AbstractView {
@@ -12,6 +15,14 @@ public class LinkView extends AbstractView {
 	public void showResults(Request request) {
 		if(request!=null) {
 	    	System.out.println("\n Gestisci i link\n");
+	    	System.out.println("Nodo 1\tNodo 2");
+			System.out.println("----------------------------------------------------\n");
+			
+			@SuppressWarnings("unchecked")
+			List<LinkDTO> links = (List<LinkDTO>) request.get("links");
+			for (LinkDTO l: links)
+				System.out.println(l);
+			System.out.println();
 	    }
 	}
 
