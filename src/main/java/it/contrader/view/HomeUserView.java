@@ -7,18 +7,18 @@ import it.contrader.main.MainDispatcher;
 public class HomeUserView extends AbstractView{
 
 	String choice;
+	private Request request;
 
 	@Override
 	public void showResults(Request request) {
-		System.out.println("\n-----Purtroppo in questo sample l'utente non puà fare nulla, ci scusiamo per il disagio.-----");
-
+		if(request!=null) {
+	    	System.out.println("\n Benvenuto in MENTAL CONNECT "+request.get("username").toString() + "\n");
+	    	}
 	}
 
 	@Override
 	public void showOptions() {
 		System.out.println("-------------MENU------------\n");
-		System.out.println("NESSUNA OPZIONE DISPONIBILE!");
-		System.out.println("\n Esatto, puoi solo uscire...");
 		choice = this.getInput();
 
 	}
@@ -27,7 +27,11 @@ public class HomeUserView extends AbstractView{
 	public void submit() {
 
 		switch (choice) {
-
+		case "i":
+        	this.request.put("mode", "");
+        	MainDispatcher.getInstance().callAction("User", "doControl", request);
+        	break;
+ 
 		case "e":
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 			break;

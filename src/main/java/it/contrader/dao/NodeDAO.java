@@ -13,9 +13,9 @@ import it.contrader.model.Node;
 
 public class NodeDAO {
 	private final String QUERY_ALL = "SELECT * FROM node";
-	private final String QUERY_CREATE = "INSERT INTO node (idNode, text, color, idMap) VALUES (?,?,?,?)";
+	private final String QUERY_CREATE = "INSERT INTO node (idNode, text, idMap) VALUES (?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM node WHERE idNode=?";
-	private final String QUERY_UPDATE = "UPDATE node SET text=?, color=?, idMap=? WHERE idNode=?";
+	private final String QUERY_UPDATE = "UPDATE node SET text=?, idMap=? WHERE idNode=?";
 	private final String QUERY_DELETE = "DELETE FROM node WHERE idNode=?";
 
 	public NodeDAO() {}
@@ -29,9 +29,10 @@ public class NodeDAO {
 			Node node;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("idNode");
+				int idMap = resultSet.getInt("idMap");
 				String text = resultSet.getString("text");
-				String color = resultSet.getString("color");
-				node = new Node(text, color, id);
+				
+				node = new Node(text, idMap);
 				node.setIdNode(id);
 				nodeList.add(node);
 			}
@@ -46,7 +47,6 @@ public class NodeDAO {
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, nodeToInsert.getText());
-			preparedStatement.setString(2, nodeToInsert.getColor());
 			preparedStatement.setInt(3, nodeToInsert.getIdMap());
 			preparedStatement.execute();
 			return true;
@@ -65,13 +65,12 @@ public class NodeDAO {
 			preparedStatement.setInt(1, nodeId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String text, color;
+			String text;
 			int idMap;
 
 			text = resultSet.getString("text");
-			color = resultSet.getString("color");
 			idMap = resultSet.getInt("idMap");
-			Node node= new Node(text, color, idMap);
+			Node node= new Node(text, idMap);
 			node.setIdNode(resultSet.getInt("idNode"));
 
 			return node;
@@ -96,14 +95,10 @@ public class NodeDAO {
 					nodeToUpdate.setText(nodeRead.getText());
 				}
 
-				if (nodeToUpdate.getColor() == null || nodeToUpdate.getColor().equals("")) {
-					nodeToUpdate.setColor(nodeRead.getColor());
-				}
 
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, nodeToUpdate.getText());
-				preparedStatement.setString(2, nodeToUpdate.getColor());
 				preparedStatement.setInt(3, nodeToUpdate.getIdNode());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)

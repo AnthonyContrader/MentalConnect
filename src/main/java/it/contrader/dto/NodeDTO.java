@@ -1,22 +1,20 @@
-package it.contrader.model;
+package it.contrader.dto;
 
-public class Node {
+public class NodeDTO {
 	private int idNode;
 	private String text;
 	private int idMap;
 	
+	public NodeDTO(){}
 	
-	//Costruttori
-	public Node(){}
-	
-	public Node(String text, int idMap){
+	public NodeDTO(String text,int idMap){
 		this.idMap= idMap;
 		this.text = text;
 	}
-	public Node(int idNode, String text, int idMap){
-		this.idMap= idMap;
+	public NodeDTO(int idNode, String text, int idMap){
 		this.text = text;
 		this.idNode= idNode;
+		this.idMap= idMap;
 	}
 	
 	//Setter e getter
@@ -32,32 +30,16 @@ public class Node {
 	public void setText(String text) {
 		this.text = text;
 	}
-
 	public int getIdMap() {
 		return idMap;
 	}
 	public void setIdMap(int idMap) {
 		this.idMap = idMap;
 	}
-	
+
 	//Trasforma un oggetto in una stringa
 	@Override
 	public String toString() {
 		return  idNode + "\t"  +   text + "\t\t" + idMap;
-	}
-	
-	//Metodo per il confronto degli oggetti
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Node other = (Node) obj;
-		if (idNode!= other.idNode)
-			return false;
-		return true;
 	}
 }
