@@ -41,25 +41,25 @@ public class MapController implements Controller {
 		//Definisce i campi della classe (serviranno sempre, tanto vale definirli una sola volta)
 		int id;
 		String mapName;
-		int idCartella;
-
+		int idFolder;
 		switch (mode) {
 		
-		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 
+		// Arriva qui dalla MapReadView. Invoca il Service con il parametro id e invia alla MapReadView uno user da mostrare 
 		case "READ":
 			id = Integer.parseInt(request.get("id").toString());
 			MapDTO mapDTO = mapService.read(id);
 			request.put("map", mapDTO);
 			MainDispatcher.getInstance().callView(sub_package + "MapRead", request);
+			
 			break;
 		
-		// Arriva qui dalla UserInsertView. Estrae i parametri da inserire e chiama il service per inserire uno user con questi parametri
+		// Arriva qui dalla MapInsertView. Estrae i parametri da inserire e chiama il service per inserire uno user con questi parametri
 		case "INSERT":
 			mapName = request.get("mapName").toString();
-			idCartella = Integer.parseInt(request.get("idCartella").toString());
+			idFolder = Integer.parseInt(request.get("idFolder").toString());
 			
-			//costruisce l'oggetto user da inserire
-			MapDTO maptoinsert = new MapDTO(idCartella, mapName);
+			//costruisce l'oggetto map da inserire
+			MapDTO maptoinsert = new MapDTO(idFolder, mapName);
 			//invoca il service
 			mapService.insert(maptoinsert);
 			request = new Request();
@@ -68,7 +68,7 @@ public class MapController implements Controller {
 			MainDispatcher.getInstance().callView(sub_package + "MapInsert", request);
 			break;
 		
-		// Arriva qui dalla UserDeleteView. Estrae l'id dell'utente da cancellare e lo passa al Service
+		// Arriva qui dalla MapDeleteView. Estrae l'id dell'utente da cancellare e lo passa al Service
 		case "DELETE":
 			id = Integer.parseInt(request.get("id").toString());
 			//Qui chiama il service
@@ -78,21 +78,20 @@ public class MapController implements Controller {
 			MainDispatcher.getInstance().callView(sub_package + "MapDelete", request);
 			break;
 		
-		// Arriva qui dalla UserUpdateView
+		// Arriva qui dalla MapUpdateView
 		case "UPDATE":
 			id = Integer.parseInt(request.get("id").toString());
 			mapName = request.get("mapName").toString();
-			idCartella = Integer.parseInt(request.get("idCartella").toString());
+			idFolder = Integer.parseInt(request.get("idFolder").toString());
 			
-			MapDTO maptoupdate = new MapDTO(id, idCartella, mapName);
-			maptoupdate.setMapName("mapName");
+			MapDTO maptoupdate = new MapDTO(id, idFolder, mapName);
 			mapService.update(maptoupdate);
 			request = new Request();
 			request.put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "MapUpdate", request);
 			break;
 			
-		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 
+		//Arriva qui dalla UserView Invoca il Service e invia alla MapView il risultato da mostrare 
 		case "MAPLIST":
 			List<MapDTO> mapsDTO = mapService.getAll();
 			//Impacchetta la request con la lista degli user
@@ -116,7 +115,9 @@ public class MapController implements Controller {
 				break;
 				
 			case "M":
+				
 				MainDispatcher.getInstance().callView(sub_package + "MapUpdate", null);
+				
 				break;
 				
 			case "C":

@@ -1,13 +1,9 @@
 package it.contrader.view;
-
 import java.util.List;
-
 import it.contrader.controller.Request;
 import it.contrader.dto.MapDTO;
 import it.contrader.main.MainDispatcher;
-
 public class MapView extends AbstractView {
-	
 	private Request request;
 	private String choice;
 
@@ -16,13 +12,13 @@ public class MapView extends AbstractView {
 	}
 
 	/**
-	 * Mostra la lista utenti
+	 * Mostra la lista delle mappe
 	 */
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
 			System.out.println("\n------------------- Gestione mappe ----------------\n");
-			System.out.println("ID\tMapName\tidCartella");
+			System.out.println("ID\tMapname\t\tID_Folder");
 			System.out.println("----------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")
@@ -34,7 +30,7 @@ public class MapView extends AbstractView {
 	}
 
 	/**
-	 * Chiede all'utente un input (lettera da tastiera) per la choice (vedi UserController). 
+	 * Chiede all'utente un input (lettera da tastiera) per la choice (vedi MapController). 
 	 * Mette la modalità GETCHOICE nella mode.
 	 */
 	@Override
@@ -42,13 +38,13 @@ public class MapView extends AbstractView {
 		System.out.println("          Scegli l'operazione da effettuare:");
 		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
 
-		this.choice = getInput();
+		choice = getInput();
 
 		
 	}
 	
 	/**
-	 * Impacchetta la request e la manda allo UserController.
+	 * Impacchetta la request e la manda al MapController.
 	 */
 	@Override
 	public void submit() {
@@ -58,5 +54,5 @@ public class MapView extends AbstractView {
 		MainDispatcher.getInstance().callAction("Map", "doControl", this.request);
 	}
 
-
+	
 }
