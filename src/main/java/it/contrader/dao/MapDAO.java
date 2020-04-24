@@ -14,9 +14,9 @@ import it.contrader.model.Map;
 public class MapDAO {
 	
 	private final String QUERY_ALL = "SELECT * FROM map";
-	private final String QUERY_CREATE = "INSERT INTO map (idCartella) VALUES (?)";
+	private final String QUERY_CREATE = "INSERT INTO map (idFolder, mapName) VALUES (?, ?)";
 	private final String QUERY_READ = "SELECT * FROM map WHERE idMap=?";
-	private final String QUERY_UPDATE = "UPDATE map SET mapName=?, WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE map SET mapName=?, idFolder=? WHERE idMap=?";
 	private final String QUERY_DELETE = "DELETE FROM map WHERE idMap=?";
 	
 	public MapDAO() {}
@@ -30,10 +30,9 @@ public class MapDAO {
 			Map map;
 			while (resultSet.next()) {
 				int idMap = resultSet.getInt("idMap");
-				int idCartella = resultSet.getInt("idCartella");
+				int idFolder = resultSet.getInt("idFolder");
 				String mapName = resultSet.getString("mapName");
-				map = new Map(idMap, idCartella, mapName);
-				//map.setIdMap(idMap);
+				map = new Map(idMap, idFolder, mapName);
 				mapList.add(map);
 			}
 		} catch (SQLException e) {
@@ -46,8 +45,10 @@ public class MapDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-			preparedStatement.setInt(1, map.getIdCartella());
+			preparedStatement.setInt(1, map.getIdFolder());
+			preparedStatement.setString(2, map.getMapName() );
 			preparedStatement.execute();
+			
 			return true;
 		} catch (SQLException e) {
 			return false;
@@ -65,10 +66,11 @@ public class MapDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			
-			int idCartella = resultSet.getInt("idCartella");
+			int idFolder = resultSet.getInt("idFolder");
 			String mapName = resultSet.getString("mapName");
-			
-			Map map = new Map(mapId, idCartella, mapName);
+					
+			Map map = new Map(idFolder, mapName);
+			map.setIdMap(resultSet.getInt("idMap"));
 			
 			return map;
 		} catch (SQLException e) {
@@ -89,8 +91,8 @@ public class MapDAO {
 		if (!mapRead.equals(mapToUpdate)) {
 			try {
 				// Fill the userToUpdate object
-				if (mapToUpdate.getIdCartella() != 0 ) {
-					mapToUpdate.setIdMap(mapRead.getIdCartella());
+				if (mapToUpdate.getIdFolder() != 0 ) {
+					mapToUpdate.setIdFolder(mapRead.getIdFolder());
 				}
 				if (mapToUpdate.getMapName() == null || mapToUpdate.getMapName().equals("") ) {
 					mapToUpdate.setMapName(mapRead.getMapName());
@@ -100,9 +102,8 @@ public class MapDAO {
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, mapToUpdate.getMapName());
-				
-				preparedStatement.setInt(2, mapToUpdate.getIdMap());
-				
+				preparedStatement.setInt(2, mapToUpdate.getIdFolder());
+				preparedStatement.setInt(3, mapToUpdate.getIdMap());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

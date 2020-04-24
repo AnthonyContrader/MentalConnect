@@ -13,7 +13,7 @@ public class MapConverter {
 	 * Notare l'uso del metodo get() per ottenere il valore dell'attributo-
 	 */
 	public MapDTO toDTO(Map map) {
-		MapDTO mapDTO = new MapDTO(map.getIdMap(), map.getIdCartella(), map.getMapName());
+		MapDTO mapDTO = new MapDTO(map.getIdMap(), map.getIdFolder(), map.getMapName());
 		return mapDTO;
 	}
 
@@ -22,7 +22,7 @@ public class MapConverter {
 	 * Notare l'uso del metodo get() per ottenere il valore dell'attributo-
 	 */
 	public Map toEntity(MapDTO mapDTO) {
-		Map map = new Map(mapDTO.getIdMap(), mapDTO.getIdCartella(), mapDTO.getMapName());
+		Map map = new Map(mapDTO.getIdMap(), mapDTO.getIdFolder(), mapDTO.getMapName());
 		return map;
 	}
 	

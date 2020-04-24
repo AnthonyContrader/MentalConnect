@@ -2,7 +2,7 @@ package it.contrader.model;
 
 public class Map {
 	private int idMap;
-	private int idCartella;
+	private int idFolder;
 	private String mapName;
 	
 	
@@ -19,47 +19,60 @@ public class Map {
 	public void setIdMap(int idMap) {
 		this.idMap = idMap;
 	}
-	public int getIdCartella() {
-		return idCartella;
+	public int getIdFolder() {
+		return idFolder;
 	}
-	public void setIdCartella(int idCartella) {
-		this.idCartella = idCartella;
+	public void setIdFolder(int idFolder) {
+		this.idFolder = idFolder;
 	}
 	
 	public Map() {}
 	
-	public Map(int idCartella, String mapName) {
-		this.idCartella = idCartella;
+	public Map(int idFolder, String mapName) {
+		this.idFolder = idFolder;
 		this.mapName = mapName;
 	}
 	
-	public Map(int idMap, int idCartella, String mapName) {
+	public Map(int idMap, int idFolder, String mapName) {
 		this.idMap = idMap;
-		this.idCartella = idCartella;
+		this.idFolder = idFolder;
 		this.mapName = mapName;
 	}
 	
 	 @Override
 	public String toString() {
-		return idMap + "\t" + mapName  + "\t\t" +idCartella  ;
+		return idMap + "\t" + mapName  + "\t\t" + "\t\t" + idFolder  ;
 	}
 	 
 	 @Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			Map other = (Map) obj;
-			if (idMap != other.idMap)
-				return false;
-			if (idCartella != other.idCartella)
-				return false;
-		
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idFolder;
+		result = prime * result + idMap;
+		result = prime * result + ((mapName == null) ? 0 : mapName.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		}
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Map other = (Map) obj;
+		if (idFolder != other.idFolder)
+			return false;
+		if (idMap != other.idMap)
+			return false;
+		if (mapName == null) {
+			if (other.mapName != null)
+				return false;
+		} else if (!mapName.equals(other.mapName))
+			return false;
+		return true;
+	}
 	
 	
 }
