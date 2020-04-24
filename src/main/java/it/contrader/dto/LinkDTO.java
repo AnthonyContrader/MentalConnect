@@ -31,6 +31,6 @@ public class LinkDTO {
 	//Trasforma un oggetto in una stringa
 	@Override
 	public String toString() {
-		return  idNode1 + "\t" + idNode2;
+		return  idNode1 + "\t\t" + idNode2;
 	}
 }

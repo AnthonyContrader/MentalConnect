@@ -32,7 +32,7 @@ public class HomeAdminView extends AbstractView {
      * Chiede all'utente di effettuare una scelta (da console)
      */
     public void showOptions() {
-        System.out.println("-------------MENU------------\n");
+        System.out.println("--------------------   MENU     --------------------\n");
         System.out.println(" Seleziona cosa vuoi gestire:");
         System.out.println("[U]sers [F]olders [M]ap [N]ode [L]ink [G]uide [E]sci");
         //Il metodo che salva l'input nella stringa choice.
@@ -76,9 +76,8 @@ public class HomeAdminView extends AbstractView {
         	MainDispatcher.getInstance().callAction("Login", "doControl", null);
         	break;
         default:
-        	
-            request.put("choice", choice);
-        	MainDispatcher.getInstance().callAction("Login", "doControl", request);
+        	System.out.println("La voce: "+choice+" non è valida.");
+            MainDispatcher.getInstance().callView("HomeAdmin", null);
         }
     }
 }
