@@ -41,6 +41,6 @@ public class MapDTO {
 	
 	@Override
 	public String toString() {
-		return idMap + "\t" + mapName  + "    \t" +idFolder  ;
+		return idMap + "\t" + mapName  + "    \t\t" +idFolder  ;
 	}
 }

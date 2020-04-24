@@ -17,8 +17,8 @@ public class MapView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
-			System.out.println("\n------------------- Gestione mappe ----------------\n");
-			System.out.println("ID\tMapname\t\tID_Folder");
+			System.out.println("\n--------------- Gestione mappe ----------------\n");
+			System.out.println("ID\tNome mappa\t\tID cartella");
 			System.out.println("----------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")
