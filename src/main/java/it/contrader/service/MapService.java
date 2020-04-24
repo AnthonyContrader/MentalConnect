@@ -7,6 +7,7 @@ import it.contrader.dao.MapDAO;
 import it.contrader.dto.MapDTO;
 
 
+
 public class MapService {
 
 	private MapDAO mapDAO;
@@ -38,7 +39,7 @@ public class MapService {
 
 
 	public boolean update(MapDTO dto) {
-		// Converte una mapDTO in entità e lo passa alla mapDAO per la modifica
+		// Converte un userDTO in entità e lo passa allo userDAO per la modifica
 		return mapDAO.update(mapConverter.toEntity(dto));
 	}
 
@@ -47,5 +48,4 @@ public class MapService {
 		// Questo mtodo chiama direttamente il DAO
 		return mapDAO.delete(id);
 	}
-	
 }

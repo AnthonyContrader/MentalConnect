@@ -12,7 +12,7 @@ public class GuideDAO
 	private final String QUERY_ALL = "SELECT * FROM guide";
 	private final String QUERY_CREATE = "INSERT INTO guide (idGuide, answer, question) VALUES (?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM guide WHERE idGuide=?";
-	private final String QUERY_UPDATE = "UPDATE user SET idGuide=?, answer=?, question=? WHERE idGuide=?";
+	private final String QUERY_UPDATE = "UPDATE guide SET answer=?, question=? WHERE idGuide=?";
 	private final String QUERY_DELETE = "DELETE FROM guide WHERE idGuide=?";
 
 	public GuideDAO() {

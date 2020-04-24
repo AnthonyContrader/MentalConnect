@@ -25,7 +25,7 @@ public class MapReadView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
-			MapDTO map = (MapDTO) request.get("Map");
+			MapDTO map = (MapDTO) request.get("map");
 			System.out.println(map);
 			MainDispatcher.getInstance().callView("Map", null);
 		}

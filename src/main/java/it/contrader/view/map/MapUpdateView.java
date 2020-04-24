@@ -4,15 +4,15 @@ import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
 
-public class MapUdateView extends AbstractView {
+public class MapUpdateView extends AbstractView {
 	private Request request;
 
 	private int id;
 	private String mapName;
-	
 	private final String mode = "UPDATE";
-
-	public MapUdateView() {
+    private int idFolder;
+    
+	public MapUpdateView() {
 	}
 
 	/**
@@ -33,8 +33,13 @@ public class MapUdateView extends AbstractView {
 	@Override
 	public void showOptions() {
 		try {
-			System.out.println("Inserisci nome della mappa:");
+			System.out.println("Inserisci id mappa:");
+			id = Integer.parseInt(getInput());
+			System.out.println("Inserisci il nome della mappa:");
 			mapName = getInput();
+			System.out.println("Inserisci id della cartella:");
+			idFolder = Integer.parseInt(getInput());
+			
 		} catch (Exception e) {
 
 		}
@@ -49,9 +54,9 @@ public class MapUdateView extends AbstractView {
 		request = new Request();
 		request.put("id", id);
 		request.put("mapName", mapName);
+		request.put("idFolder", idFolder);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Map", "doControl", request);
 	}
-
 
 }

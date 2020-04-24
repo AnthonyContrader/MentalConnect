@@ -6,7 +6,7 @@ import it.contrader.view.AbstractView;
 
 public class MapInsertView extends AbstractView{
 	private Request request;
-	private int idCartella;
+	private int idFolder;
 	private String mapName;
 	private final String mode = "INSERT";
 
@@ -33,7 +33,7 @@ public class MapInsertView extends AbstractView{
 			System.out.println("Inserisci il nome della mappa:");
 			mapName = getInput();
 			System.out.println("Inserisci l'ID della cartella:");
-			idCartella = Integer.parseInt(getInput());
+			idFolder = Integer.parseInt(getInput());
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class MapInsertView extends AbstractView{
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("idCartella", idCartella);
+		request.put("idFolder", idFolder);
 		request.put("mapName", mapName);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Map", "doControl", request);

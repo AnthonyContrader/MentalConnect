@@ -2,7 +2,7 @@ package it.contrader.dto;
 
 public class MapDTO {
 	private int idMap;
-	private int idCartella;
+	private int idFolder;
 	private String mapName;
 	
 	
@@ -19,28 +19,28 @@ public class MapDTO {
 	public void setIdMap(int idMap) {
 		this.idMap = idMap;
 	}
-	public int getIdCartella() {
-		return idCartella;
+	public int getIdFolder() {
+		return idFolder;
 	}
-	public void setIdCartella(int idCartella) {
-		this.idCartella = idCartella;
+	public void setIdFolder(int idFolder) {
+		this.idFolder = idFolder;
 	}
 	
 	public MapDTO() {}
 	
-	public MapDTO(int idCartella, String mapName) {
-		this.idCartella = idCartella;
+	public MapDTO(int idFolder, String mapName) {
+		this.idFolder = idFolder;
 		this.mapName = mapName;
 	}
 	
-	public MapDTO(int idMap, int idCartella, String mapName) {
+	public MapDTO(int idMap, int idFolder, String mapName) {
 		this.idMap = idMap;
-		this.idCartella = idCartella;
+		this.idFolder = idFolder;
 		this.mapName = mapName;
 	}
 	
 	@Override
 	public String toString() {
-		return idMap + "\t" + mapName  + "\t" +idCartella  ;
+		return idMap + "\t" + mapName  + "    \t" +idFolder  ;
 	}
 }

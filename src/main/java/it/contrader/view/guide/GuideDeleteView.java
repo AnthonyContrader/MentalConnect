@@ -43,7 +43,7 @@ public class GuideDeleteView extends AbstractView {
 		request = new Request();
 		request.put("idGuide", idGuide);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("Guida", "doControl", request);
+		MainDispatcher.getInstance().callAction("Guide", "doControl", request);
 	}
 
 
