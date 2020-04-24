@@ -61,7 +61,7 @@ public class FolderDTO {
 		
 		@Override
 		public String toString() {
-			return  idFolder + "\t"  + idUser +"\t\t" +   nameFolder;
+			return  idFolder + "\t\t"  + idUser +"\t" +   nameFolder;
 		}
 }
 	
