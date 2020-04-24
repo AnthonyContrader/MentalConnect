@@ -14,8 +14,8 @@ public class LinkView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if(request!=null) {
-	    	System.out.println("\n Gestisci i link\n");
-	    	System.out.println("Nodo 1\tNodo 2");
+	    	System.out.println("\n---------------- Gestione Collegamento -------------\n");
+	    	System.out.println("Nodo 1\t\tNodo 2");
 			System.out.println("----------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")

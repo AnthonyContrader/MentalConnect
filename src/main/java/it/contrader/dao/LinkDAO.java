@@ -63,8 +63,8 @@ public class LinkDAO {
 			preparedStatement.setInt(2, idNode2);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			
-			Link link = new Link(idNode1, idNode2);
+
+			Link link = new Link(resultSet.getInt("idNode1"), resultSet.getInt("idNode2"));
 
 			return link;
 		} catch (SQLException e) {

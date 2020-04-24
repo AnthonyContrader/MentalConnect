@@ -52,7 +52,7 @@ public class ConnectionSingleton {
                 * PS: quelle di base necessitano solo la modifica del nome del database 
                 */
                 String vendor = properties.getProperty("db.vendor");
-                String driver = properties.getProperty("db.driver");
+                //String driver = properties.getProperty("db.driver");
                 String host = properties.getProperty("db.host");
                 String port = properties.getProperty("db.port");
                 String dbName = properties.getProperty("db.name");
@@ -60,8 +60,8 @@ public class ConnectionSingleton {
                 String password = properties.getProperty("db.password");
                 String jdbcAdditionalParams=properties.getProperty("db.jdbc_params");
                 
-    			Class<?> c = Class.forName(driver);
-    			System.out.println("Ho caricato: " + c.getName());
+    			//Class<?> c = Class.forName(driver);
+    			//System.out.println("Ho caricato: " + c.getName());
     			// compongo la stringa di connessione al database
                 String url = "jdbc:" + vendor + "://" + host + ":" + port + "/" + dbName+"?"+jdbcAdditionalParams;
                 // eseguo la connessione al database
