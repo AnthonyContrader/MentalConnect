@@ -43,7 +43,7 @@ public class LinkDAO {
 	
 	public boolean insert(Link linkToInsert) {
 		Connection connection = ConnectionSingleton.getInstance();
-		try {	
+		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setInt(1, linkToInsert.getIdNode1());
 			preparedStatement.setInt(2, linkToInsert.getIdNode2());
