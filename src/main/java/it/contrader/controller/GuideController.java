@@ -86,7 +86,7 @@ public class GuideController implements Controller {
 		case "GUIDELIST":
 			List<GuideDTO> guidesDTO = guideService.getAll();
 			
-			request.put("Guide", guidesDTO);
+			request.put("guide", guidesDTO);
 			MainDispatcher.getInstance().callView("Guide", request);
 			break;
 			

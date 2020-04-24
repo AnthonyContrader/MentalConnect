@@ -29,7 +29,7 @@ public class GuideReadView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
-			GuideDTO guide = (GuideDTO) request.get("Guide");
+			GuideDTO guide = (GuideDTO) request.get("guide");
 			System.out.println(guide);
 			MainDispatcher.getInstance().callView("Guide", null);
 		}
