@@ -22,7 +22,7 @@ public class GuideView extends AbstractView {
 	public void showResults(Request request) {
 		if (request != null) {
 			System.out.println("\n------------------- Gestione Guide ----------------\n");
-			System.out.println("IdGuide\tQuestion\tAnswer");
+			System.out.println("IdGuide\t \t Question\tAnswer");
 			System.out.println("----------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")

@@ -39,7 +39,7 @@ public class GuideUpdateView extends AbstractView {
 			System.out.println("Inserisci la domanda della Guida");
 			question = getInput();
 			System.out.println("Inserisci la risposta della Guida:");
-			question = getInput();
+			answer = getInput();
 		} catch (Exception e) {
 
 		}
@@ -52,9 +52,9 @@ public class GuideUpdateView extends AbstractView {
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("id", idGuide);
-		request.put("domanda", question);
-		request.put("risposta", answer);
+		request.put("idGuide", idGuide);
+		request.put("question", question);
+		request.put("answer", answer);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Guide", "doControl", request);
 	}
