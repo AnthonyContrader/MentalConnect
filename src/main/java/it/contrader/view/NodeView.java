@@ -13,7 +13,10 @@ public class NodeView extends AbstractView{
 	@Override
 	public void showResults(Request request) {
 		if(request!=null) {	
-			System.out.println("-------------MENU NODO------------\n");
+			System.out.println("\n------------------- Gestione cartelle ----------------\n");
+			System.out.println("ID cartella\tID user\tNome cartella");
+			System.out.println("----------------------------------------------------\n");
+			
 			
 			@SuppressWarnings("unchecked")
 			List<NodeDTO> nodes = (List<NodeDTO>) request.get("nodes");
@@ -26,7 +29,8 @@ public class NodeView extends AbstractView{
 
 	@Override
 	public void showOptions() {
-		System.out.println("L[eggi] [I]nserisci nodo [C]ancella nodo [M]odifica nodo [E]sci [B]ack");
+		System.out.println("          Scegli l'operazione da effettuare:");
+		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
 		choice = this.getInput();
 	}
 
