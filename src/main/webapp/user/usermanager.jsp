@@ -33,6 +33,7 @@
 		</tr>
 		<%
 			for (UserDTO u : list) {
+			
 		%>
 		<tr>
 			<td><a href=UserServlet?mode=read&id=<%=u.getId()%>>
