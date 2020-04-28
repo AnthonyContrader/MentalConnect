@@ -30,6 +30,7 @@ public class LoginServlet extends HttpServlet {
 		LoginService service = new LoginService();
 
 		if (request != null) {
+			
 			String username = request.getParameter("username").toString();
 			String password = request.getParameter("password").toString();
 			//come nei vecchi controller, invoca il service

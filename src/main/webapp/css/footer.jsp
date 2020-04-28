@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="footer">
-Stuff about copyright, legal notes and other useless informations...
+Copyright 2020 © MentalConnectJSP - Powered by MentalConnectTeam
 </div>
 </body>
 </html>
