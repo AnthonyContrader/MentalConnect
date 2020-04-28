@@ -19,6 +19,7 @@ public class FolderDAO {
 	private final String QUERY_READ = "SELECT * FROM folder WHERE idFolder=?";
 	private final String QUERY_UPDATE = "UPDATE folder SET nameFolder=? WHERE idFolder=?";
 	private final String QUERY_DELETE = "DELETE FROM folder WHERE idFolder=?";
+	private final String QUERY_FILTER = "SELECT * FROM folder WHERE idUser=?";
 
 	public FolderDAO() {}
 	
@@ -26,8 +27,8 @@ public class FolderDAO {
 		List<Folder> folderList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_FILTER);
+			ResultSet resultSet = preparedStatement.executeQuery();
 			Folder folder;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("idFolder");
