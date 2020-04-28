@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+//import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,20 +12,22 @@ import it.contrader.utils.ConnectionSingleton;
 import it.contrader.model.Node;
 
 public class NodeDAO {
-	private final String QUERY_ALL = "SELECT * FROM node";
+	//private final String QUERY_ALL = "SELECT * FROM node";
 	private final String QUERY_CREATE = "INSERT INTO node (text, idMap) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM node WHERE idNode=?";
 	private final String QUERY_UPDATE = "UPDATE node SET text=?, idMap=? WHERE idNode=?";
 	private final String QUERY_DELETE = "DELETE FROM node WHERE idNode=?";
+	private final String QUERY_FILTER = "SELECT * FROM node WHERE idMap=?";
 
 	public NodeDAO() {}
 	
-	public List<Node> getAll() {
+	public List<Node> getAll(int idmap) {
 		List<Node> nodeList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_FILTER);
+			preparedStatement.setInt(1, idmap);
+			ResultSet resultSet = preparedStatement.executeQuery();
 			Node node;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("idNode");

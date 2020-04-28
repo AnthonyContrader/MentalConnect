@@ -15,8 +15,8 @@ public class NodeService {
 		this.nodeConverter = new NodeConverter();
 	}
 	
-	public List<NodeDTO> getAll(){
-		return nodeConverter.toDTOList(nodeDAO.getAll());
+	public List<NodeDTO> getAll(int idmap){
+		return nodeConverter.toDTOList(nodeDAO.getAll(idmap));
 	}
 	
 	public NodeDTO read(int id) {
