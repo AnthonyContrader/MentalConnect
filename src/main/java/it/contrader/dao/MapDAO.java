@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import it.contrader.utils.ConnectionSingleton;
@@ -13,7 +12,7 @@ import it.contrader.model.Map;
 
 public class MapDAO {
 	
-	private final String QUERY_ALL = "SELECT * FROM map";
+	private final String QUERY_ALL_BY_FOLDER = "SELECT * FROM map WHERE idFolder = ?";
 	private final String QUERY_CREATE = "INSERT INTO map (idFolder, mapName) VALUES (?, ?)";
 	private final String QUERY_READ = "SELECT * FROM map WHERE idMap=?";
 	private final String QUERY_UPDATE = "UPDATE map SET mapName=?, idFolder=? WHERE idMap=?";
@@ -21,16 +20,16 @@ public class MapDAO {
 	
 	public MapDAO() {}
 	
-	public List<Map> getAll() {
+	public List<Map> getAll(int idFolder) {
 		List<Map> mapList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_ALL_BY_FOLDER);
+			preparedStatement.setInt(1, idFolder);
+			ResultSet resultSet = preparedStatement.executeQuery();
 			Map map;
 			while (resultSet.next()) {
 				int idMap = resultSet.getInt("idMap");
-				int idFolder = resultSet.getInt("idFolder");
 				String mapName = resultSet.getString("mapName");
 				map = new Map(idMap, idFolder, mapName);
 				mapList.add(map);

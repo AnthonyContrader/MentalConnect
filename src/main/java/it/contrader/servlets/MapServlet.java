@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import it.contrader.dto.MapDTO;
 import it.contrader.service.MapService;
-import it.contrader.service.Service;
 
 
 public class MapServlet extends HttpServlet {
@@ -19,14 +18,14 @@ public class MapServlet extends HttpServlet {
 	}
 	
 	public void updateList(HttpServletRequest request) {
-		Service<MapDTO> service = new MapService();
-		List<MapDTO>listDTO = service.getAll();
+		MapService service = new MapService();
+		List<MapDTO>listDTO = service.getAll(Integer.parseInt(request.getParameter("idfolder")));
 		request.setAttribute("list", listDTO);
 	}
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Service<MapDTO> service = new MapService();
+		MapService service = new MapService();
 		String mode = request.getParameter("mode");
 		MapDTO dto;
 		int id;
@@ -48,7 +47,7 @@ public class MapServlet extends HttpServlet {
 		case "READ":
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = service.read(id);
-			
+			request.setAttribute("idfolder", Integer.parseInt(request.getParameter("idfolder")));
 			request.setAttribute("dto", dto);
 			
 			if (request.getParameter("update") == null) {
@@ -89,6 +88,7 @@ public class MapServlet extends HttpServlet {
 			id = Integer.parseInt(request.getParameter("id"));
 			ans = service.delete(id);
 			request.setAttribute("ans", ans);
+			request.setAttribute("idfolder", Integer.parseInt(request.getParameter("idfolder")));
 			updateList(request);
 			getServletContext().getRequestDispatcher("/map/mapmanager.jsp").forward(request, response);
 			break;

@@ -20,9 +20,10 @@
 <div class="main">
 
 <%FolderDTO u = (FolderDTO) request.getAttribute("dto");%>
+<% int idUser = (int) request.getAttribute("idUser");%>
 
 
-<form id="floatleft" action="FolderServlet?mode=update&idFolder=<%=u.getIdFolder()%>" method="post">
+<form id="floatleft" action="FolderServlet?mode=update&idUser=<%=idUser%>&idFolder=<%=u.getIdFolder()%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="folder">Folder</label>

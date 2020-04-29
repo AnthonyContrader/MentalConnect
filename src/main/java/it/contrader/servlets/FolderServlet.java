@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.contrader.dto.FolderDTO;
-import it.contrader.dto.NodeDTO;
 import it.contrader.service.FolderService;
-import it.contrader.service.Service;
 
 
 public class FolderServlet extends HttpServlet {
@@ -41,13 +39,15 @@ public class FolderServlet extends HttpServlet {
 		case "FOLDERLIST":
 			updateList(request);
 			request.setAttribute("idUser", Integer.parseInt(request.getParameter("idUser")));
-			getServletContext().getRequestDispatcher("/folder/usermanager.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/folder/foldermanager.jsp").forward(request, response);
 			break;
 
 		case "READ":
 			idFolder = Integer.parseInt(request.getParameter("idFolder"));
 			dto = service.read(idFolder);
+			idUser = Integer.parseInt(request.getParameter("idUser"));
 			request.setAttribute("dto", dto);
+			request.setAttribute("idUser", idUser);
 			
 			if (request.getParameter("update") == null) {
 				 getServletContext().getRequestDispatcher("/folder/readfolder.jsp").forward(request, response);
@@ -72,8 +72,10 @@ public class FolderServlet extends HttpServlet {
 		case "UPDATE":
 			nameFolder = request.getParameter("nameFolder");
 		    idFolder = Integer.parseInt(request.getParameter("idFolder"));
+		    idUser = Integer.parseInt(request.getParameter("idUser"));
 		    request.setAttribute("idFolder", idFolder);
-			dto = new FolderDTO (nameFolder,idFolder);
+			request.setAttribute("idUser", idUser);
+			dto = new FolderDTO (idFolder, nameFolder,idUser);
 			
 			ans = service.update(dto);
 			updateList(request);

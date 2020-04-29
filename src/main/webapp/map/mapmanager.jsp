@@ -13,8 +13,8 @@
 
 <div class="navbar">
   <a  href="homeadmin.jsp">Home</a>
-  <a class="active" href="UserServlet?mode=userlist">Users</a>
-  <a href="FolderServlet?mode=folderlist">Folders</a>
+  <a  href="UserServlet?mode=userlist&idUser=${user.getId()}">Users</a>
+  <a class="active" href="FolderServlet?mode=folderlist">Folders</a>
   <a href="GuideServlet?mode=guidelist">Guides</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
@@ -51,9 +51,9 @@
 					Apri
 			</a></td>
 			
-			<td><a href=MapServlet?mode=read&update=true&id=<%=u.getIdMap()%>>Edit</a>
+			<td><a href="MapServlet?mode=read&update=true&id=<%=u.getIdMap()%>&idfolder=<%=u.getIdFolder() %>">Edit</a>
 			</td>
-			<td><a href=MapServlet?mode=delete&id=<%=u.getIdMap()%>>Delete</a>
+			<td><a href="MapServlet?mode=delete&id=<%=u.getIdMap()%>&idfolder=<%=u.getIdFolder() %>">Delete</a>
 			</td>
 
 		</tr>

@@ -13,9 +13,9 @@
 
 <div class="navbar">
   <a  href="homeadmin.jsp">Home</a>
-  <a class="active" href="UserServlet?mode=userlist">Users</a>
-  <a href="FolderServlet?mode=folderlist">Folders</a>
-<a href="GuideServlet?mode=guidelist">Guides</a>
+  <a href="UserServlet?mode=userlist">Users</a>
+  <a class="active" href="FolderServlet?mode=folderlist&idUser=${user.getId()}">Folders</a>
+  <a href="GuideServlet?mode=guidelist">Guides</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <div class="main">
@@ -32,6 +32,7 @@
 			<th>Folder</th>
 			
 			
+			<th>Mappe</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -40,12 +41,15 @@
 			
 		%>
 		<tr>
-			<td><a href="FolderServlet?mode=read&idFolder=<%=u.getIdFolder()%>">
+			<td><a href="FolderServlet?mode=read&idFolder=<%=u.getIdFolder()%>&idUser=<%=u.getIdUser()%>">
 					<%=u.getNameFolder()%>
 			</a></td>
-			<td><a href="FolderServlet?mode=read&update=true&idFolder=<%=u.getIdFolder()%>">Edit</a>
+			<td><a href="MapServlet?mode=maplist&idfolder=<%=u.getIdFolder()%>">
+					Apri
+			</a></td>
+			<td><a href="FolderServlet?mode=read&update=true&idUser=<%=u.getIdUser()%>&idFolder=<%=u.getIdFolder()%>">Edit</a>
 			</td>
-			<td><a href="FolderServlet?mode=delete&idFolder=<%=u.getIdFolder()%>>">Delete</a>
+			<td><a href="FolderServlet?mode=delete&idUser=<%=u.getIdUser()%>&idFolder=<%=u.getIdFolder()%>">Delete</a>
 			</td>
 			
 		</tr>
@@ -54,7 +58,7 @@
 		%>
 	</table>
 	
-	<form idFolder="floatright" action="FolderServlet?mode=insert&idUser=<%=idUser%>" method="post">
+	<form id="floatright" action="FolderServlet?mode=insert&idUser=<%=idUser%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="text">Folder</label>

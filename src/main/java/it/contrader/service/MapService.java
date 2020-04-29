@@ -22,9 +22,9 @@ public class MapService extends AbstractService<Map, MapDTO>{
 	}
 	
 
-	public List<MapDTO> getAll() {
+	public List<MapDTO> getAll(int idFolder) {
 		// Ottiene una lista di entità e le restituisce convertendole in DTO
-		return mapConverter.toDTOList(mapDAO.getAll());
+		return mapConverter.toDTOList(mapDAO.getAll(idFolder));
 	}
 
 
