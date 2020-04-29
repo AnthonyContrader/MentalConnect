@@ -19,7 +19,7 @@
 <br>
 
 <div class="main">
-<%FolderDTO f = (FolderDTO) request.getAttribute("dto");%>
+<%FolderDTO u = (FolderDTO) request.getAttribute("dto");%>
 
 
 <table>
@@ -28,7 +28,7 @@
 	
 	</tr>
 	<tr>
-		<td><%=f.getNameFolder()%></td>
+		<td><%=u.getNameFolder()%></td>
 	
 	</tr>	
 </table>

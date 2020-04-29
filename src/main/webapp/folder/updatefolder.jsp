@@ -19,16 +19,16 @@
 <br>
 <div class="main">
 
-<%FolderDTO f = (FolderDTO) request.getAttribute("dto");%>
+<%FolderDTO u = (FolderDTO) request.getAttribute("dto");%>
 
 
-<form id="floatleft" action="FolderServlet?mode=update&idFolder=<%=f.getIdFolder()%>&idUser=<%=f.getIdUser()%>" method="post">
+<form id="floatleft" action="FolderServlet?mode=update&idFolder=<%=u.getIdFolder()%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="folder">Folder</label>
     </div>
     <div class="col-75">
-      <input type="text" id="folder" name="nameFolder" value=<%=f.getNameFolder()%>>
+      <input type="text" id="folder" name="nameFolder" value=<%=u.getNameFolder()%>>
     </div>
   </div>
  
