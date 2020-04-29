@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.contrader.dto.LinkDTO;
+import it.contrader.dto.NodeDTO;
 import it.contrader.service.LinkService;
+import it.contrader.service.NodeService;
 
 /*
  * Per dettagli vedi Guida sez Servlet
@@ -26,10 +28,17 @@ public class LinkServlet extends HttpServlet {
 		request.setAttribute("list", listDTO);
 	
 	}
+	
+	public void updateNodeList(HttpServletRequest request) {
+		NodeService nodeService = new NodeService();
+		List<NodeDTO> listDTO = nodeService.getAll(Integer.parseInt(request.getParameter("idmap")));
+		request.setAttribute("nodes", listDTO);
+	}
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LinkService service = new LinkService();
+		
 		String mode = request.getParameter("mode");
 		LinkDTO dto;
 		int idNode1;
@@ -42,6 +51,7 @@ public class LinkServlet extends HttpServlet {
 			
 			request.setAttribute("idmap", Integer.parseInt(request.getParameter("idmap")));
 			updateList(request);
+			updateNodeList(request);
 			getServletContext().getRequestDispatcher("/link/linkmanager.jsp").forward(request, response);
 			break;
 
@@ -66,6 +76,7 @@ public class LinkServlet extends HttpServlet {
 	
 			dto = new LinkDTO (idNode1,idNode2);
 			ans = service.insert(dto);
+			updateNodeList(request);
 			request.setAttribute("idmap", Integer.parseInt(request.getParameter("idmap")));
 			request.setAttribute("ans", ans);
 			updateList(request);
@@ -87,6 +98,7 @@ public class LinkServlet extends HttpServlet {
 			idNode1 = Integer.parseInt(request.getParameter("idNode1"));
 			idNode2 = Integer.parseInt(request.getParameter("idNode2"));
 			ans = service.delete(idNode1,idNode2);
+			updateNodeList(request);
 			request.setAttribute("idmap", Integer.parseInt(request.getParameter("idmap")));
 			request.setAttribute("ans", ans);
 			updateList(request);
