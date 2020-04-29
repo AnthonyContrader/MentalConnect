@@ -66,6 +66,7 @@ public class LinkServlet extends HttpServlet {
 	
 			dto = new LinkDTO (idNode1,idNode2);
 			ans = service.insert(dto);
+			request.setAttribute("idmap", Integer.parseInt(request.getParameter("idmap")));
 			request.setAttribute("ans", ans);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/link/linkmanager.jsp").forward(request, response);
@@ -86,6 +87,7 @@ public class LinkServlet extends HttpServlet {
 			idNode1 = Integer.parseInt(request.getParameter("idNode1"));
 			idNode2 = Integer.parseInt(request.getParameter("idNode2"));
 			ans = service.delete(idNode1,idNode2);
+			request.setAttribute("idmap", Integer.parseInt(request.getParameter("idmap")));
 			request.setAttribute("ans", ans);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/link/linkmanager.jsp").forward(request, response);
