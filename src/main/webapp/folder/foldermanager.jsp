@@ -40,10 +40,10 @@
 			
 		%>
 		<tr>
-			<td><a href="FolderServlet?mode=read&idFolder=<%=u.getIdFolder()%>&idUser=<%=u.getIdUser()%>">
+			<td><a href="FolderServlet?mode=read&idFolder=<%=u.getIdFolder()%>">
 					<%=u.getNameFolder()%>
 			</a></td>
-			<td><a href="FolderServlet?mode=read&update=true&idFolder=<%=u.getIdFolder()%>&idUser=<%=u.getIdUser()%>">Edit</a>
+			<td><a href="FolderServlet?mode=read&update=true&idFolder=<%=u.getIdFolder()%>">Edit</a>
 			</td>
 			<td><a href="FolderServlet?mode=delete&idFolder=<%=u.getIdFolder()%>>">Delete</a>
 			</td>

@@ -8,13 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import it.contrader.model.Folder;
-
+import it.contrader.model.Node;
 import it.contrader.utils.ConnectionSingleton;
 
 
 
 public class FolderDAO {
-	private final String QUERY_ALL = "SELECT * FROM folder";
+	//private final String QUERY_ALL = "SELECT * FROM folder";
 	private final String QUERY_CREATE = "INSERT INTO folder (idUser, nameFolder) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM folder WHERE idFolder=?";
 	private final String QUERY_UPDATE = "UPDATE folder SET nameFolder=? WHERE idFolder=?";
@@ -23,21 +23,21 @@ public class FolderDAO {
 
 	public FolderDAO() {}
 	
-	public List<Folder> getAll() {
+	public List<Folder> getAll(int idUser) {
 		List<Folder> folderList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_FILTER);
+			preparedStatement.setInt(1, idUser);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			Folder folder;
 			while (resultSet.next()) {
-				int id = resultSet.getInt("idFolder");
+				int idFolder = resultSet.getInt("idFolder");
 				int iduser = resultSet.getInt("idUser");
 				String namefolder = resultSet.getString("nameFolder");
-				folder = new Folder(id , namefolder , iduser);
-				folder.setIdFolder(id);
-				
-			folderList.add(folder);
+				folder = new Folder(namefolder , idUser);
+	            folder.setIdFolder(idFolder);
+				folderList.add(folder);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -94,7 +94,7 @@ public class FolderDAO {
 			return false;
 		
 		Folder folderRead = read(folderToUpdate.getIdFolder());
-		System.out.println(folderToUpdate.getNameFolder() + " "+ folderRead.getNameFolder());
+		
 		if (!folderRead.equals(folderToUpdate)) {
 		
 			try {

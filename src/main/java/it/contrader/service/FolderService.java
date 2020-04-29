@@ -17,9 +17,9 @@ public class FolderService {
 	}
 	
 
-	public List<FolderDTO> getAll() {
+	public List<FolderDTO> getAll(int idUser) {
 		
-		return folderConverter.toDTOList(folderDAO.getAll());
+		return folderConverter.toDTOList(folderDAO.getAll(idUser));
 	}
 
 

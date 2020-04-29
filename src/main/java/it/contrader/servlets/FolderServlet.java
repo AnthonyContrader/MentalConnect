@@ -23,7 +23,7 @@ public class FolderServlet extends HttpServlet {
 	
 	public void updateList(HttpServletRequest request) {
 		FolderService service =  new FolderService();
-		List<FolderDTO>listDTO = service.getAll();
+		List<FolderDTO>listDTO = service.getAll(Integer.parseInt(request.getParameter("idUser")));
 		request.setAttribute("list", listDTO);
 	}
 
@@ -40,6 +40,7 @@ public class FolderServlet extends HttpServlet {
 
 		case "FOLDERLIST":
 			updateList(request);
+			request.setAttribute("idUser", Integer.parseInt(request.getParameter("idUser")));
 			getServletContext().getRequestDispatcher("/folder/usermanager.jsp").forward(request, response);
 			break;
 
@@ -71,8 +72,9 @@ public class FolderServlet extends HttpServlet {
 		case "UPDATE":
 			nameFolder = request.getParameter("nameFolder");
 		    idFolder = Integer.parseInt(request.getParameter("idFolder"));
+		    request.setAttribute("idFolder", idFolder);
 			dto = new FolderDTO (nameFolder,idFolder);
-			request.setAttribute("idFolder", idFolder);
+			
 			ans = service.update(dto);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/folder/foldermanager.jsp").forward(request, response);
@@ -81,6 +83,8 @@ public class FolderServlet extends HttpServlet {
 		case "DELETE":
 			idFolder = Integer.parseInt(request.getParameter("idFolder"));
 			ans = service.delete(idFolder);
+			idUser = Integer.parseInt(request.getParameter("idUser"));
+			request.setAttribute("idUser", idUser);
 			request.setAttribute("ans", ans);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/folder/foldermanager.jsp").forward(request, response);

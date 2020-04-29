@@ -20,6 +20,7 @@
 </div>
 <div class="main">
 	<% List<LinkDTO> list = (List<LinkDTO>) request.getAttribute("list"); %>	
+	<% int idmap = (int) request.getAttribute("idmap"); %>	
 
 <br>
 
@@ -34,14 +35,14 @@
 			
 		%>
 		<tr>
-			<td><a href=NodeServlet?mode=read&idNode=<%=u.getIdNode1()%>>
+			<td><a href="NodeServlet?mode=read&idmap=<%=idmap%>&idNode=<%=u.getIdNode1()%>">
 					<%= u.getIdNode1() %>
 			</a></td>
-			<td><a href=NodeServlet?mode=read&idNode=<%=u.getIdNode2()%>>
+			<td><a href="NodeServlet?mode=read&idmap=<%=idmap%>&idNode=<%=u.getIdNode2()%>">
 					<%= u.getIdNode2() %>
 			</a></td>
 			
-			<td><a href="LinkServlet?mode=delete&idNode1=<%=u.getIdNode1()%>&idNode2=<%=u.getIdNode2()%>">Delete</a>
+			<td><a href="LinkServlet?mode=delete&idmap=<%=idmap%>&idNode1=<%=u.getIdNode1()%>&idNode2=<%=u.getIdNode2()%>">Delete</a>
 			</td>
 
 		</tr>
@@ -52,7 +53,7 @@
 
 
 
-<form id="floatright" action="LinkServlet?mode=insert" method="post">
+<form id="floatright" action="LinkServlet?mode=insert&idmap=<%=idmap%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="idNode1">ID Nodo 1</label>
