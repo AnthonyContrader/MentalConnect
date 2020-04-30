@@ -1,1 +1,2 @@
-# MentalConnect
+# SAMPLE
+Sample Projects
