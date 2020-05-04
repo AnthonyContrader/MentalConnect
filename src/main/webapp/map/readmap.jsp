@@ -11,7 +11,9 @@
 <%@ include file="../css/header.jsp" %>
 <div class="navbar">
   <a href="homeadmin.jsp">Home</a>
-  <a class="active"  href="UserServlet?mode=userlist">Users</a>
+  <a href="UserServlet?mode=userlist">Users</a>
+  <a class="active" href="FolderServlet?mode=folderlist&idUser=${user.getId()}">Folders</a>
+  <a href="GuideServlet?mode=guidelist">Guides</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 <br>
@@ -22,7 +24,7 @@
 
 <table>
 	<tr> 
-		<th>Mappa</th>
+		<th>Map</th>
 	</tr>
 	<tr>
 		<td><%=u.getMapName()%></td>

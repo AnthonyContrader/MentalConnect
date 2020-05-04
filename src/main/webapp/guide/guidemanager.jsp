@@ -59,7 +59,7 @@
       <label for="question">Question</label>
     </div>
     <div class="col-75">
-      <input type="text" id="question" name="question" placeholder="inserisci question">
+      <input type="text" id="question" name="question" placeholder="insert question">
     </div>
   </div>
   <div class="row">
@@ -67,7 +67,7 @@
      <label for="answer">Answer</label>
     </div>
     <div class="col-75">
-      <input type="text" id="answer" name="answer" placeholder="inserisci answer"> 
+      <input type="text" id="answer" name="answer" placeholder="insert answer"> 
     </div>
   </div>
 

@@ -21,11 +21,10 @@
 </div>
 
 <div class="main">
-<h1>Benvenuto ${user.getUsername()} su MentalConnect</h1>
+<h1>Welcome ${user.getUsername()} on MentalConnect</h1>
 
-<p>Questa web app permette di creare mappe concettuali</p>
+<p align="center">This web app allows you to create concept maps</p>
 </div>
-
 
 <%@ include file="css/footer.jsp" %>
 

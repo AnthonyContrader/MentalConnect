@@ -28,7 +28,7 @@
 
 	<table>
 		<tr>
-			<th>Testo</th>
+			<th>Text</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -56,10 +56,10 @@
 <form id="floatright" action="NodeServlet?mode=insert&idmap=<%=idmap%>" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="text">Testo</label>
+      <label for="text">Text</label>
     </div>
     <div class="col-75">
-      <input type="text" id="node" name="text" placeholder="inserisci testo">
+      <input type="text" id="node" name="text" placeholder="insert text">
     </div>
   </div>
 

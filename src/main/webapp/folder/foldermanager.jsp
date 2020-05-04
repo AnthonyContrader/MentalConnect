@@ -32,7 +32,7 @@
 			<th>Folder</th>
 			
 			
-			<th>Mappe</th>
+			<th>Maps</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -45,7 +45,7 @@
 					<%=u.getNameFolder()%>
 			</a></td>
 			<td><a href="MapServlet?mode=maplist&idfolder=<%=u.getIdFolder()%>">
-					Apri
+					Open
 			</a></td>
 			<td><a href="FolderServlet?mode=read&update=true&idUser=<%=u.getIdUser()%>&idFolder=<%=u.getIdFolder()%>">Edit</a>
 			</td>
@@ -64,7 +64,7 @@
       <label for="text">Folder</label>
     </div>
     <div class="col-75">
-      <input type="text" id="folder" name="nameFolder" placeholder="inserisci cartella">
+      <input type="text" id="folder" name="nameFolder" placeholder="insert folder">
     </div>
   </div>
 

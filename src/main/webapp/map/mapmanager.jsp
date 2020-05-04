@@ -13,8 +13,8 @@
 
 <div class="navbar">
   <a  href="homeadmin.jsp">Home</a>
-  <a  href="UserServlet?mode=userlist&idUser=${user.getId()}">Users</a>
-  <a class="active" href="FolderServlet?mode=folderlist">Folders</a>
+  <a  href="UserServlet?mode=userlist">Users</a>
+  <a class="active" href="FolderServlet?mode=folderlist&idUser=${user.getId()}">Folders</a>
   <a href="GuideServlet?mode=guidelist">Guides</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
@@ -28,9 +28,9 @@
 
 	<table>
 		<tr>
-			<th>Mappe</th>
-			<th>Relazioni</th>
-			<th>Nodi</th>
+			<th>Maps</th>
+			<th>Links</th>
+			<th>Nodes</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -45,10 +45,10 @@
 					<%=u.getMapName()%>
 			</a></td>
 			<td><a href="LinkServlet?mode=linklist&idmap=<%=u.getIdMap()%>">
-					Apri
+					Open
 			</a></td>
 			<td><a href="NodeServlet?mode=Nodelist&idmap=<%=u.getIdMap()%>">
-					Apri
+					Open
 			</a></td>
 			
 			<td><a href="MapServlet?mode=read&update=true&id=<%=u.getIdMap()%>&idfolder=<%=u.getIdFolder() %>">Edit</a>
@@ -67,10 +67,10 @@
 <form id="floatright" action="MapServlet?mode=insert&idfolder=<%=idfolder%>" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="map">Mappa</label>
+      <label for="map">Map</label>
     </div>
     <div class="col-75">
-      <input type="text" id="map" name="mapname" placeholder="Inserisci mappa">
+      <input type="text" id="map" name="mapname" placeholder="Insert map">
     </div>
   </div>
  

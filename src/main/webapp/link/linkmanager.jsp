@@ -28,8 +28,8 @@
 
 	<table>
 		<tr>
-			<th>Nodo 1</th>
-			<th>Nodo 2</th>
+			<th>Node 1</th>
+			<th>Node 2</th>
 			<th></th>
 		</tr>
 		<%
