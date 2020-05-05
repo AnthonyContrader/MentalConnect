@@ -21,15 +21,19 @@ public class Folder {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idfolder")
 	private Long idFolder;
 	
-	@Column(unique = true)
+	@Column(unique = true,name="namefolder")
 	private String nameFolder;
 
+	
+	
+	
+	
 	//@ManyToOne
-	private Long idUser;
-	
-	
+	@Column(name = "iduser")
+		private Long idUser;
 
 	
 
