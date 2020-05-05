@@ -26,7 +26,7 @@ public class FolderController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request, @RequestParam("idUser") Long idUser) {
 		setAll(request);
-		return "folder";
+		return "folders";
 	}
 
 	@GetMapping("/delete")
