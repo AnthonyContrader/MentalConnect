@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="it.contrader.dto.UserDTO"%>
+	pageEncoding="ISO-8859-1" import="it.contrader.dto.FolderDTO"%>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="User Read">
+<meta name="description" content="Folder Read">
 <meta name="author" content="Vittorio Valent">
 <link href="/css/vittoriostyle.css" rel="stylesheet">
-<title>Read User</title>
+<title>Read Folder</title>
 </head>
 <body>
 	<%@ include file="./css/header.jsp"%>
@@ -19,23 +19,18 @@
 	<br>
 
 	<div class="main">
-		<%
-			UserDTO u = (UserDTO) request.getSession().getAttribute("dto");
-		%>
+		<%FolderDTO u = (FolderDTO) request.getSession().getAttribute("dto");%>
+		
 
 
 		<table>
 			<tr>
-				<th>ID</th>
-				<th>Username</th>
-				<th>Password</th>
-				<th>Usertype</th>
+				<th>Folder</th>
+				
 			</tr>
 			<tr>
-				<td><%=u.getId()%></td>
-				<td><%=u.getUsername()%></td>
-				<td><%=u.getPassword()%></td>
-				<td><%=u.getUsertype()%></td>
+				<td><%=u.getNameFolder()%></td>
+			
 			</tr>
 		</table>
 
