@@ -1,6 +1,5 @@
 package it.contrader.dto;
 
-import it.contrader.model.User.Usertype;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,14 +8,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class UserDTO {
-
+public class LinkDTO {
+	
 	private Long id;
 	
-	private String username;
-
-	private String password;
-
-	private Usertype usertype;
+	private Long idNode1;
+	
+	private Long idNode2;
 
 }
