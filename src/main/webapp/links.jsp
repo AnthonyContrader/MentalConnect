@@ -1,4 +1,4 @@
-<%@ page import="it.contrader.dto.LinkDTO" import="java.util.*"%>
+<%@ page import="it.contrader.dto.LinkDTO" import="it.contrader.dto.UserDTO" import="java.util.*"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -16,12 +16,14 @@
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> 
 		<a href="/user/getall">Users</a> 
-		<a class="active" href="/folder/getall">Folders</a> 
+		<a href="/folder/getall&idUser="${user.getId()}>Folders</a>
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
 			List<LinkDTO> list = (List<LinkDTO>) request.getSession().getAttribute("list");
+			UserDTO user = (UserDTO) request.getSession().getAttribute("user");
+			
 		%>
 
 		<br>
