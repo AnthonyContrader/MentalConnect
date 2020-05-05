@@ -38,7 +38,7 @@
   </div>
  
   
-   		
+   		<input type="hidden" name="idUser" value =<%=u.getIdUser() %>>
     	<input type="hidden" name="idFolder" value =<%=u.getIdFolder() %>>
  
       <button type="submit" >Edit</button>

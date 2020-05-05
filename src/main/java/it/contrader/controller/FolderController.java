@@ -45,13 +45,16 @@ public class FolderController {
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("idFolder") Long idFolder, @RequestParam("nameFolder") String nameFolder
+	public String update(HttpServletRequest request, @RequestParam("idFolder") Long idFolder, @RequestParam("nameFolder") String nameFolder,@RequestParam("idUser") Long idUser
 			) {
 		request.setAttribute("idFolder", idFolder);
+		
 		request.setAttribute("nameFolder", nameFolder);
+		request.setAttribute("idUser", idUser);
 		FolderDTO dto = new FolderDTO();
 		dto.setIdFolder(idFolder);
 		dto.setNameFolder(nameFolder);
+		dto.setIdFolder(idUser);
 		service.update(dto);
 		setAll(request);
 		return "folders";
