@@ -52,7 +52,7 @@
 
 
 
-		<form id="floatright" action="/folder/insert" method="post">
+		<form id="floatright" action="/folder/insert?idUser=1" method="post">
 			<div class="row">
 				<div class="col-25">
 					<label for="folder">Folder</label>

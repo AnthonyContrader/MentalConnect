@@ -25,12 +25,14 @@ public class FolderController {
 
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request, @RequestParam("idUser") Long idUser) {
+		request.setAttribute("idUser", idUser);
 		setAll(request);
 		return "folders";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("idFolder") Long idFolder) {
+		request.setAttribute("IdFolder", idFolder);
 		service.delete(idFolder);
 		setAll(request);
 		return "folders";
@@ -45,7 +47,8 @@ public class FolderController {
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("idFolder") Long idFolder, @RequestParam("nameFolder") String nameFolder
 			) {
-
+		request.setAttribute("idFolder", idFolder);
+		request.setAttribute("nameFolder", nameFolder);
 		FolderDTO dto = new FolderDTO();
 		dto.setIdFolder(idFolder);
 		dto.setNameFolder(nameFolder);
@@ -58,6 +61,8 @@ public class FolderController {
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("nameFolder") String nameFolder,
 			@RequestParam("idUser") Long idUser) {
+		request.setAttribute("idUser", idUser);
+		request.setAttribute("nameFolder", nameFolder);
 		FolderDTO dto = new FolderDTO();
 		dto.setNameFolder(nameFolder);
 		dto.setIdUser(idUser);
