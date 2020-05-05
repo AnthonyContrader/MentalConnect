@@ -13,15 +13,15 @@
 <body>
 	<%@ include file="./css/header.jsp"%>
 
+
 	<div class="navbar">
 	<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/user/getall">Users</a> <a href="/folder/getall">Folders</a> <a href="/user/logout" id="logout">Logout</a>
+			href="/user/getall">Users</a> <a href="/folder/getall&idUser="${user.getId()}>Folders</a> <a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
-		<%
-			List<FolderDTO> list = (List<FolderDTO>) request.getSession().getAttribute("list");
-		   Long idUser = (Long) request.getAttribute("idUser");
-		%>
+		<%List<FolderDTO> list = (List<FolderDTO>) request.getSession().getAttribute("list");%>
+		   
+		  <% 	Long idUser = (Long) request.getAttribute("idUser"); %>
 
 		<br>
 
@@ -52,7 +52,7 @@
 
 
 
-		<form id="floatright" action="/folder/insert?idUser=1" method="post">
+		<form id="floatright" action="/folder/insert&idUser=<%=idUser%>" method="post">
 			<div class="row">
 				<div class="col-25">
 					<label for="folder">Folder</label>
