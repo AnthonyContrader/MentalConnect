@@ -54,7 +54,7 @@ public class FolderController {
 		FolderDTO dto = new FolderDTO();
 		dto.setIdFolder(idFolder);
 		dto.setNameFolder(nameFolder);
-		dto.setIdFolder(idUser);
+		dto.setIdUser(idUser);
 		service.update(dto);
 		setAll(request);
 		return "folders";
