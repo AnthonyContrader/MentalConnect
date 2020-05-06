@@ -1,9 +1,12 @@
 package it.contrader.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+
 
 import it.contrader.model.Node;
 
@@ -11,6 +14,6 @@ import it.contrader.model.Node;
 @Transactional
 public interface NodeRepository extends CrudRepository<Node, Long> {
 
-	Node findBytext(String text);
+	List <Node> findByIdMap(Long idMap);
 
 }

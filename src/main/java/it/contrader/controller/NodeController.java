@@ -20,15 +20,18 @@ public class NodeController {
 	private NodeService service;
 
 	@GetMapping("/getall")
-	public String getAll(HttpServletRequest request) {
-		setAll(request);
+	public String getAll(HttpServletRequest request, @RequestParam("idMap") Long idMap) {
+		request.setAttribute("idMap", idMap);
+		setAll(request,idMap);
 		return "nodes";
 	}
 
 	@GetMapping("/delete")
-	public String delete(HttpServletRequest request, @RequestParam("idNode") Long idNode) {
+	public String delete(HttpServletRequest request, @RequestParam("idNode") Long idNode, @RequestParam("idMap") Long idMap) {
+		request.setAttribute("idNode", idNode);
+		request.setAttribute("idMap", idMap);
 		service.delete(idNode);
-		setAll(request);
+		setAll(request,idMap);
 		return "nodes";
 	}
 
@@ -48,7 +51,7 @@ public class NodeController {
 		dto.setText(text);
 		dto.setIdMap(idMap);
 		service.update(dto);
-		setAll(request);
+		setAll(request,idMap);
 		return "nodes";
 
 	}
@@ -62,7 +65,7 @@ public class NodeController {
 		dto.setText(text);
 		dto.setIdMap(idMap);
 		service.insert(dto);
-		setAll(request);
+		setAll(request,idMap);
 		return "nodes";
 	}
 
@@ -72,7 +75,7 @@ public class NodeController {
 		return "readnode";
 	}
 
-	private void setAll(HttpServletRequest request) {
-		request.getSession().setAttribute("list", service.getAll());
+	private void setAll(HttpServletRequest request, Long idMap) {
+		request.getSession().setAttribute("list", service.findByIdMap(idMap));
 	}
 }
