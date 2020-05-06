@@ -14,7 +14,7 @@ import it.contrader.model.Link;
 @Transactional
 public interface LinkRepository extends CrudRepository<Link, Long> {
 
-	@Query("SELECT DISTINCT link.idNode1, link.idNode2 FROM node, link WHERE link.idNode1 = node.idNode AND node.idMap = :idMap")
+	@Query(value = "SELECT DISTINCT Link.id, Link.idNode1, Link.idNode2 FROM Node, Link WHERE Link.idNode1 = Node.idNode AND Node.idMap = :idMap", nativeQuery = true)
 	List<Link> findLinkByIdMap(Long idMap);
 
 }
