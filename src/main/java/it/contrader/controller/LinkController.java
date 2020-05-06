@@ -75,6 +75,6 @@ public class LinkController {
 	}
 
 	private void setAll(HttpServletRequest request, Long idMap) {
-		request.getSession().setAttribute("list", service.getAll());
+		request.getSession().setAttribute("list", service.findLinkByIdMap(idMap));
 	}
 }

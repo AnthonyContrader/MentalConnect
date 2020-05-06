@@ -23,12 +23,10 @@ public class Link {
 	private Long id;
 	
 	//@ManyToOne
-	//@JoinColumn(name="idnode")
 	@Column(name = "idnode1", nullable = false)
 	private Long idNode1;
 	
 	//@ManyToOne
-	//@JoinColumn(name="idnode")
 	@Column(name = "idnode2", nullable = false)
 	private Long idNode2;
 
