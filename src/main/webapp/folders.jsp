@@ -28,7 +28,7 @@
 		<table>
 			<tr>
 				<th>Folder</th>
-			
+			    <th></th>
 				<th></th>
 				<th></th>
 			</tr>
