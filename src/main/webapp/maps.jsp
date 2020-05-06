@@ -16,7 +16,7 @@
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> 
 		<a class="active" href="/map/getall">Mappe</a> 
-		<a href="/folder/getall&idUser="${user.getId()}>Folders</a> 
+		<a href="/folder/getall?idUser=${user.getId()}">Folders</a> 
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
@@ -40,6 +40,18 @@
 				<td><a href="/map/read?idMap=<%=u.getIdMap()%>&idFolder=<%=u.getIdFolder()%>">
 				<%=u.getMapName()%>
 				</a></td>
+				
+				<td>
+				<a href="/node/getall?idMap=<%=u.getIdMap()%>">
+                    Apri</a>
+               </td>
+				
+				<td>
+				<a href="/link/getall?idMap=<%=u.getIdMap()%>">
+                    Apri</a>
+               </td>
+				
+				
 				
 				<td><a href="/map/preupdate?idMap=<%=u.getIdMap()%>">Edit</a></td>
 
