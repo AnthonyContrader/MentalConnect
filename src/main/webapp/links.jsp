@@ -1,4 +1,4 @@
-<%@ page import="it.contrader.dto.LinkDTO" import="it.contrader.dto.UserDTO" import="java.util.*"%>
+<%@ page import="it.contrader.dto.LinkDTO" import="it.contrader.dto.NodeDTO" import="it.contrader.dto.UserDTO" import="java.util.*"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -16,15 +16,16 @@
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> 
 		<a href="/user/getall">Users</a> 
-		<a href="/folder/getall&idUser="${user.getId()}>Folders</a>
+		<a href="/folder/getall?idUser=${user.getId()}">Folders</a>
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
 			List<LinkDTO> list = (List<LinkDTO>) request.getSession().getAttribute("list");
+			List<NodeDTO> nodes = (List<NodeDTO>) request.getAttribute("nodes");
 			UserDTO user = (UserDTO) request.getSession().getAttribute("user");
-			Long idMap = (Long) request.getAttribute("idMap");
 			
+			Long idMap = (Long) request.getAttribute("idMap");		
 		%>
 
 		<br>
@@ -40,10 +41,10 @@
 			%>
 			<tr>
 				<td><a href="/node/read?idNode=<%=u.getIdNode1()%>"> 
-					<%=u.getIdNode1()%>
+					<%= nodes.stream().filter(x -> x.getIdNode() == u.getIdNode1()).findFirst().get().getText() %>
 				</a></td>
 				<td><a href="/node/read?idNode=<%=u.getIdNode2()%>"> 
-					<%=u.getIdNode2()%>
+					<%= nodes.stream().filter(x -> x.getIdNode() == u.getIdNode2()).findFirst().get().getText() %>
 				</a></td>
 
 				<td><a href="/link/delete?id=<%=u.getId()%>&idMap=<%=idMap%>">Delete</a></td>
@@ -60,16 +61,32 @@
 					<label for="idNode1">Nodo 1</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="idNode1" name="idNode1" placeholder="inserisci nodo 1">
-				</div>
+		 			<select id="idNode1" name="idNode1">
+		 			<%
+		 				for (NodeDTO n : nodes) {
+					%>
+		  				<option value="<%=n.getIdNode()%>"><%=n.getText()%></option>
+					<%
+						}
+					%>
+					</select>
+    			</div>
 			</div>
 			<div class="row">
 				<div class="col-25">
 					<label for="idNode2">Nodo 2</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="idNode2" name="idNode2" placeholder="inserisci nodo 2">
-				</div>
+		 			<select id="idNode2" name="idNode2">
+		 			<%
+		 				for (NodeDTO n : nodes) {
+					%>
+		  				<option value="<%=n.getIdNode()%>"><%=n.getText()%></option>
+					<%
+						}
+					%>
+					</select>
+    			</div>
 			</div>
 			
 			<button type="submit">Insert</button>

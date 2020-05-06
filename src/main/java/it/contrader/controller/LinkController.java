@@ -1,5 +1,7 @@
 package it.contrader.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.dto.LinkDTO;
+import it.contrader.dto.NodeDTO;
 import it.contrader.service.LinkService;
+import it.contrader.service.NodeService;
 
 @Controller
 @RequestMapping("/link")
@@ -18,11 +22,14 @@ public class LinkController {
 
 	@Autowired
 	private LinkService service;
-
+	@Autowired
+	private NodeService nodeService;
+	
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request, @RequestParam("idMap") Long idMap) {
 		request.setAttribute("idMap", idMap);
 		setAll(request, idMap);
+		setNodeList(request, idMap);
 		return "links";
 	}
 
@@ -76,5 +83,11 @@ public class LinkController {
 
 	private void setAll(HttpServletRequest request, Long idMap) {
 		request.getSession().setAttribute("list", service.findLinkByIdMap(idMap));
+	}
+	
+	public void setNodeList(HttpServletRequest request, Long idMap) {
+		
+		List<NodeDTO> nodelistDTO = nodeService.findByIdMap(idMap);
+		request.setAttribute("nodes", nodelistDTO);
 	}
 }
