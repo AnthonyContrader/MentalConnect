@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -25,12 +23,10 @@ public class Link {
 	private Long id;
 	
 	//@ManyToOne
-	//@JoinColumn(name="idnode")
 	@Column(name = "idnode1", nullable = false)
 	private Long idNode1;
 	
 	//@ManyToOne
-	//@JoinColumn(name="idnode")
 	@Column(name = "idnode2", nullable = false)
 	private Long idNode2;
 
