@@ -73,6 +73,6 @@ public class LinkController {
 	}
 
 	private void setAll(HttpServletRequest request) {
-		request.getSession().setAttribute("list", service.getAll());
+		request.getSession().setAttribute("list", service.);
 	}
 }

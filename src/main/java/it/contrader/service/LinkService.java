@@ -1,5 +1,7 @@
 package it.contrader.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +18,8 @@ public class LinkService extends AbstractService<Link, LinkDTO> {
 	@Autowired
 	private LinkRepository repository;
 
-	/*public LinkDTO findLinkByIdMap(Integer idMap) {
-		return converter.toDTO(repository.findLinkByIdMap(idMap));
-	}*/
+	public List<LinkDTO> findLinkByIdMap(Long idMap) {
+		return converter.toDTOList(repository.findLinkByIdMap(idMap));
+	}
 
 }
