@@ -36,8 +36,10 @@ public class LinkController {
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("idMap") Long idMap) {
 		request.setAttribute("idMap", idMap);
+
 		service.delete(id);
 		setAll(request, idMap);
+		setNodeList(request, idMap);
 		return "links";
 	}
 
@@ -72,6 +74,7 @@ public class LinkController {
 		
 		service.insert(dto);
 		setAll(request, idMap);
+		setNodeList(request, idMap);
 		return "links";
 	}
 
