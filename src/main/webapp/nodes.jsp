@@ -14,13 +14,14 @@
 <div class="navbar">
 		<a href="/homeadmin.jsp">Home</a>
 		<a	href="/user/getall">Users</a>
-		 <a class="active" href="/node/getall">Node</a>
+		 <a class=active href="/folder/getall&idUser="${user.getId()}>Folders</a>
 		 <a href="/user/logout" id="logout">Logout</a>
 	</div>
 	
 <div class="main">
 	<%
 	    List<NodeDTO> list = (List<NodeDTO>) request.getSession().getAttribute("list");
+	    Long idMap = (Long) request.getAttribute("idMap");
 	%>
 
 <br>
@@ -36,12 +37,12 @@
 			
 		%>
 		<tr>
-			<td><a href="/node/read?idNode=<%=u.getIdNode()%>">
+			<td><a href="/node/read?idNode=<%=u.getIdNode()%>&idMap=<%=u.getIdMap()%>">
 					<%=u.getText()%>
 			</a></td>
-			<td><a href="/node/preupdate?idNode=<%=u.getIdNode()%>">Edit</a>
+			<td><a href="/node/preupdate?idNode=<%=u.getIdNode()%>&idMap=<%=u.getIdMap()%>">Edit</a>
 			</td>
-			<td><a href="/node/delete?idNode=<%=u.getIdNode()%>">Delete</a>
+			<td><a href="/node/delete?idNode=<%=u.getIdNode()%>&idMap=<%=u.getIdMap()%>">Delete</a>
 			</td>
 
 		</tr>
@@ -51,14 +52,13 @@
 	</table>
 
 
-<form id="floatright" action="/node/insert" method="post">
+<form id="floatright" action="/node/insert?idMap=<%=idMap%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="text">Text</label>
     </div>
     <div class="col-75">
       <input type="text" id="node" name="text" placeholder="insert text">
-        <input type="hidden" id="idMap" name="idMap" value=1>
     </div>
   </div>
   

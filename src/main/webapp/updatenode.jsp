@@ -12,7 +12,7 @@
 <div class="navbar">
 		<a href="/homeadmin.jsp">Home</a>
 		<a	href="/user/getall">Users</a>
-		 <a class="active" href="/node/getall">Folders</a>
+		 <a class=active href="/folder/getall&idUser="${user.getId()}>Folders</a>
 		 <a href="/user/logout" id="logout">Logout</a>
 </div>
 <br>
@@ -21,7 +21,7 @@
 <%NodeDTO u = (NodeDTO) request.getSession().getAttribute("dto");%>
 
 
-<form id="floatleft" action="/node/update" method="post">
+<form id="floatleft" action="/node/update?idNode=<%=u.getIdNode()%>&idMap=<%=u.getIdMap()%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="node">Text</label>
