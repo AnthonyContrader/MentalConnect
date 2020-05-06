@@ -16,7 +16,7 @@
 
 	<div class="navbar">
 	<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/user/getall">Users</a> <a href="/folder/getall&idUser="${user.getId()}>Folders</a> <a href="/user/logout" id="logout">Logout</a>
+			href="/user/getall">Users</a> <a href="/folder/getall?idUser="${user.getId()}>Folders</a> <a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%List<FolderDTO> list = (List<FolderDTO>) request.getSession().getAttribute("list");%>
@@ -56,7 +56,7 @@
 
 
 
-		<form id="floatright" action="/folder/insert&idUser=<%=idUser%>" method="post">
+		<form id="floatright" action="/folder/insert?idUser=<%=idUser%>" method="post">
 			<div class="row">
 				<div class="col-25">
 					<label for="folder">Folder</label>
