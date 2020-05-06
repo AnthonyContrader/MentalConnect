@@ -41,10 +41,12 @@
 			%>
 			<tr>
 				<td><a href="/node/read?idNode=<%=u.getIdNode1()%>"> 
-					<%= nodes.stream().filter(x -> x.getIdNode() == u.getIdNode1()).findFirst().get().getText() %>
+					<%=u.getIdNode1()%>
+					<%-- <%= nodes.stream().filter(x -> x.getIdNode() == u.getIdNode1()).findFirst().get().getText() --%>
 				</a></td>
 				<td><a href="/node/read?idNode=<%=u.getIdNode2()%>"> 
-					<%= nodes.stream().filter(x -> x.getIdNode() == u.getIdNode2()).findFirst().get().getText() %>
+					<%=u.getIdNode2()%>
+					<%-- <%= nodes.stream().filter(x -> x.getIdNode() == u.getIdNode2()).findFirst().get().getText() --%>
 				</a></td>
 
 				<td><a href="/link/delete?id=<%=u.getId()%>&idMap=<%=idMap%>">Delete</a></td>
