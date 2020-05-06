@@ -43,6 +43,10 @@
 
 
 				<td><a href="/folder/delete?idFolder=<%=u.getIdFolder()%>">Delete</a></td>
+				
+				<td><a href="/map/getall?idFolder=<%=u.getIdFolder()%>">
+                    Open
+            </a></td>
 
 			</tr>
 			<%
