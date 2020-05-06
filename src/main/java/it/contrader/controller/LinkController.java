@@ -20,15 +20,17 @@ public class LinkController {
 	private LinkService service;
 
 	@GetMapping("/getall")
-	public String getAll(HttpServletRequest request) {
-		setAll(request);
+	public String getAll(HttpServletRequest request, @RequestParam("idMap") Long idMap) {
+		request.setAttribute("idMap", idMap);
+		setAll(request, idMap);
 		return "links";
 	}
 
 	@GetMapping("/delete")
-	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
+	public String delete(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("idMap") Long idMap) {
+		request.setAttribute("idMap", idMap);
 		service.delete(id);
-		setAll(request);
+		setAll(request, idMap);
 		return "links";
 	}
 
@@ -55,14 +57,14 @@ public class LinkController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, @RequestParam("idNode1") Long idNode1,
-			@RequestParam("idNode2") Long idNode2) {
-
+			@RequestParam("idNode2") Long idNode2, @RequestParam("idMap") Long idMap) {
+		request.setAttribute("idMap", idMap);
 		LinkDTO dto = new LinkDTO();
 		dto.setIdNode1(idNode1);
 		dto.setIdNode2(idNode2);
-
+		
 		service.insert(dto);
-		setAll(request);
+		setAll(request, idMap);
 		return "links";
 	}
 
@@ -72,7 +74,7 @@ public class LinkController {
 		return "readlink";
 	}
 
-	private void setAll(HttpServletRequest request) {
-		request.getSession().setAttribute("list", service.);
+	private void setAll(HttpServletRequest request, Long idMap) {
+		request.getSession().setAttribute("list", service.findLinkByIdMap(idMap));
 	}
 }

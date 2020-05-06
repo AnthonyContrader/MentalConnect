@@ -23,6 +23,7 @@
 		<%
 			List<LinkDTO> list = (List<LinkDTO>) request.getSession().getAttribute("list");
 			UserDTO user = (UserDTO) request.getSession().getAttribute("user");
+			Long idMap = (Long) request.getAttribute("idMap");
 			
 		%>
 
@@ -45,7 +46,7 @@
 					<%=u.getIdNode2()%>
 				</a></td>
 
-				<td><a href="/link/delete?id=<%=u.getId()%>">Delete</a></td>
+				<td><a href="/link/delete?id=<%=u.getId()%>&idMap=<%=idMap%>">Delete</a></td>
 
 			</tr>
 			<%
@@ -53,7 +54,7 @@
 			%>
 		</table>
 
-		<form id="floatright" action="/link/insert" method="post">
+		<form id="floatright" action="/link/insert?idMap=<%=idMap%>" method="post">
 			<div class="row">
 				<div class="col-25">
 					<label for="idNode1">Nodo 1</label>
