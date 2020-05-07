@@ -60,7 +60,7 @@
 				</div>
 				<div class="col-75">
 					<input type="text" id="user" name="username"
-						placeholder="inserisci username">
+						placeholder="insert username">
 				</div>
 			</div>
 			<div class="row">
@@ -69,7 +69,7 @@
 				</div>
 				<div class="col-75">
 					<input type="text" id="pass" name="password"
-						placeholder="inserisci password">
+						placeholder="insert password">
 				</div>
 			</div>
 			<div class="row">

@@ -27,9 +27,9 @@
 
 		<table>
 			<tr>
-				<th>Mappe</th>
-				<th>Relazioni</th>
-				<th>Nodi</th>
+				<th>Map</th>
+				<th>Link</th>
+				<th>Node</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -71,11 +71,11 @@
 		<form id="floatright" action="/map/insert?idFolder=<%=idFolder%>" method="post">
 			<div class="row">
 				<div class="col-25">
-					<label for="mapName">Mappa</label>
+					<label for="mapName">Map name</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="mapName" name="mapName"
-						placeholder="inserisci mappa">
+						placeholder="insert map name">
 				</div>
 			</div>
 						

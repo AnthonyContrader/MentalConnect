@@ -17,7 +17,7 @@
 </head>
 
 
-<body class="text-center">
+<body class="text-center login-page">
 	<form class="login" action="/user/login" method="post">
 		<h1>MentalConnect Login</h1>
 

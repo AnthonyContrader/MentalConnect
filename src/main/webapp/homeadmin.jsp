@@ -26,7 +26,7 @@
 	</div>
 
 	<div class="main">
-		<h1>Benvenuto ${user.getUsername()} su MentalConnect</h1>
+		<h1>Welcome ${user.getUsername()} in MentalConnect</h1>
 			
 	</div>
 
