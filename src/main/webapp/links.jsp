@@ -32,8 +32,8 @@
 
 		<table>
 			<tr>
-				<th>Nodo 1</th>
-				<th>Nodo 2</th>
+				<th>Node 1</th>
+				<th>Node 2</th>
 				<th></th>
 			</tr>
 			<%
@@ -60,7 +60,7 @@
 		<form id="floatright" action="/link/insert?idMap=<%=idMap%>" method="post">
 			<div class="row">
 				<div class="col-25">
-					<label for="idNode1">Nodo 1</label>
+					<label for="idNode1">Node 1</label>
 				</div>
 				<div class="col-75">
 		 			<select id="idNode1" name="idNode1">
@@ -76,7 +76,7 @@
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="idNode2">Nodo 2</label>
+					<label for="idNode2">Node 2</label>
 				</div>
 				<div class="col-75">
 		 			<select id="idNode2" name="idNode2">
