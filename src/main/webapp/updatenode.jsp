@@ -24,7 +24,7 @@
 <form id="floatleft" action="/node/update?idNode=<%=u.getIdNode()%>&idMap=<%=u.getIdMap()%>" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="node">Text</label>
+      <label for="node">Node</label>
     </div>
     <div class="col-75">
       <input type="hidden" id="idNode" name="idNode" value=<%=u.getIdNode()%>>
