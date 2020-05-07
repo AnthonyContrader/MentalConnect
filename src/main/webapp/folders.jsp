@@ -62,7 +62,7 @@
 				</div>
 				<div class="col-75">
 					<input type="text" id="folder" name="nameFolder"
-						placeholder="inserisci cartella">
+						placeholder="Insert folder">
 				</div>
 			
 					
