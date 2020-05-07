@@ -43,12 +43,12 @@
 				
 				<td>
 				<a href="/link/getall?idMap=<%=u.getIdMap()%>">
-                    Apri</a>
+                    Open</a>
                </td>
 				
 				<td>
 				<a href="/node/getall?idMap=<%=u.getIdMap()%>">
-                    Apri</a>
+                    Open</a>
                </td>
 				
 				
