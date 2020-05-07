@@ -15,7 +15,7 @@
 
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> 
-		<a href="/map/getall">Mappe</a> 
+		<a href="/user/getall">Mappe</a> 
 		<a  class="active" href="/folder/getall?idUser=${user.getId()}">Folders</a> 
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
