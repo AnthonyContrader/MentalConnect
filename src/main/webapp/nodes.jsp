@@ -28,7 +28,7 @@
 
 	<table>
 		<tr>
-			<th>Text</th>
+			<th>Node</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -55,10 +55,10 @@
 <form id="floatright" action="/node/insert?idMap=<%=idMap%>" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="text">Text</label>
+      <label for="text">Node</label>
     </div>
     <div class="col-75">
-      <input type="text" id="node" name="text" placeholder="insert text">
+      <input type="text" id="node" name="text" placeholder="insert node">
     </div>
   </div>
   

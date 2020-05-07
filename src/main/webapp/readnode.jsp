@@ -23,7 +23,7 @@
 
 <table>
 	<tr> 
-		<th>Text</th>
+		<th>Node</th>
 	</tr>
 	<tr>
 		<td><%=u.getText()%></td>
