@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
 import { MapComponent } from './map/map.component';
+import { FolderComponent } from './folder/folder.component';
+
 
 /** 
  * Modulo principale dell'applicazione. Qui vengono importati i moduli secondari. L'UNICA component
@@ -19,7 +21,8 @@ import { MapComponent } from './map/map.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    FolderComponent
   ],
   imports: [
     BrowserModule,
