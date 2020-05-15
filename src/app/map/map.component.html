@@ -1,3 +1,51 @@
-<p>
-  map works!
-</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Map
+          </th>
+          
+          <th>
+            Edit
+          </th>
+          <th>
+            User
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="mapName" [(ngModel)]="maptoinsert.mapName">
+          </td>
+          
+          <td>
+            <button (click)="insert(maptoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let map of maps">
+          <td>
+            <input [(ngModel)]="map.mapName">
+          </td>
+          
+          
+          <td>
+            <button (click)=update(map)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(map)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

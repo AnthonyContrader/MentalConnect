@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+<<<<<<< HEAD
 
+=======
+import { FolderComponent } from './folder/folder.component';
+import { MapComponent } from './map/map.component';
+>>>>>>> 1e6239b34beb3f2729dfea0fc3edc0479baac41d
 
 /**
  * Questo è un modulo di routing. Essendo il modulo principale deve UNICAMENTE 
@@ -13,7 +18,12 @@ import { Routes, RouterModule } from '@angular/router';
  */
 const routes: Routes = [
   { path: '', redirectTo:'/login', pathMatch: 'full' },
+<<<<<<< HEAD
   
+=======
+  { path: 'folder', component: FolderComponent },
+  { path: 'map', component: MapComponent }
+>>>>>>> 1e6239b34beb3f2729dfea0fc3edc0479baac41d
 ];
 
 @NgModule({
