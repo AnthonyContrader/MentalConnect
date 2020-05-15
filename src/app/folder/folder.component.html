@@ -15,7 +15,7 @@
        </tr>
         <tr>
           <td>
-            <input placeholder="insert idUser" [(ngModel)]="foldertoinsert.idUser">
+            <input type="hidden" placeholder="insert idUser" [(ngModel)]="foldertoinsert.idUser">
           </td>
           <td>
             <input placeholder="insert name folder" [(ngModel)]="foldertoinsert.nameFolder">
@@ -29,8 +29,8 @@
         </tr>
         <tr *ngFor="let folder of folders">
           <td>
-            <input [(ngModel)]="folder.idUser">
-         
+            <input type="hidden" [(ngModel)]="folder.idUser">
+            <input placeholder="insert name folder" [(ngModel)]="folder.nameFolder">
             <button (click)=update(folder)>Save</button>
           </td>
           <td>
