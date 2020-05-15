@@ -1,7 +1,10 @@
 package it.contrader.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,5 +32,10 @@ public class LinkController extends AbstractController<LinkDTO>{
 	@Autowired
 	private LinkService linkService;
 
-
+	//POST Angular a UserDTO
+	@GetMapping(value = "/getallbyidmap")
+	public List<LinkDTO> login( Long idMap ) {
+		return linkService.findLinkByIdMap(idMap);
+	
+	}
 }
