@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FolderComponent } from './folder/folder.component';
 
 /**
  * Questo è un modulo di routing. Essendo il modulo principale deve UNICAMENTE 
@@ -12,6 +13,7 @@ import { Routes, RouterModule } from '@angular/router';
  */
 const routes: Routes = [
   { path: '', redirectTo:'/login', pathMatch: 'full' },
+  { path: 'folder', component: FolderComponent },
 ];
 
 @NgModule({
