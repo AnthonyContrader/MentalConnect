@@ -1,5 +1,7 @@
 package it.contrader.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.repository.CrudRepository;
@@ -12,7 +14,7 @@ import it.contrader.model.User;
 @Transactional
 public interface FolderRepository extends CrudRepository<Folder, Long> {
 
-	Folder findByIdUser( Long idUser);
+	List<Folder> findByIdUser( Long idUser);
 
 }
 
