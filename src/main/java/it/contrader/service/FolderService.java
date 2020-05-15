@@ -1,5 +1,7 @@
 package it.contrader.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -17,8 +19,8 @@ public class FolderService extends AbstractService<Folder, FolderDTO> {
 	@Autowired
 	private FolderRepository repository;
 
-	public FolderDTO findByIdUser(Long idUser) {
-		return converter.toDTO(repository.findByIdUser(idUser));
+	public List<FolderDTO> findByIdUser(Long idUser) {
+		return  converter.toDTOList(repository.findByIdUser(idUser));
 	}
 
 }

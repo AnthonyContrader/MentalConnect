@@ -1,5 +1,7 @@
 package it.contrader.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +28,7 @@ public class FolderController extends AbstractController<FolderDTO>{
 	private FolderService folderService;
 	
 	@GetMapping (value = "/folder")
-	public FolderDTO folder( Long idUser ) {
-		return folderService.findByIdUser(idUser);
+	public List<FolderDTO> folder( Long idUser ) {
+		return  folderService.findByIdUser(idUser);
 }
 }
