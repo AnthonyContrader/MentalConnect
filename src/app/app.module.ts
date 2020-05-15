@@ -9,7 +9,7 @@ import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
 import { LinkComponent } from './link/link.component';
 import { FolderComponent } from './folder/folder.component';
-import { FormsModule } from '@angular/forms';
+
 
 /** 
  * Modulo principale dell'applicazione. Qui vengono importati i moduli secondari. L'UNICA component
