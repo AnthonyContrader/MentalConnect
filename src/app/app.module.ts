@@ -7,12 +7,9 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
-<<<<<<< HEAD
 import { MapComponent } from './map/map.component';
-=======
+
 import { LinkComponent } from './link/link.component';
->>>>>>> ff545bd101484076a77bb7db9df0c7bd512766ca
-import { FolderComponent } from './folder/folder.component';
 
 
 
@@ -26,12 +23,9 @@ import { FolderComponent } from './folder/folder.component';
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
     MapComponent,
-=======
     LinkComponent,
->>>>>>> ff545bd101484076a77bb7db9df0c7bd512766ca
-    FolderComponent
+    
   ],
   imports: [
     FormsModule,

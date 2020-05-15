@@ -15,6 +15,7 @@
        </tr>
         <tr>
           <td>
+              
             <input placeholder="insert name folder" [(ngModel)]="foldertoinsert.nameFolder">
           </td>
         <td>
@@ -24,8 +25,12 @@
             <button (click)="clear()">Clear</button>
           </td>
         </tr>
+
+   
+
         <tr *ngFor="let folder of folders">
           <td>
+              <a  [routerLink]="['/map',folder.idFolder]">Open</a>
             <input type="hidden" [(ngModel)]="folder.idUser">
             <input placeholder="insert name folder" [(ngModel)]="folder.nameFolder">
             <button (click)=update(folder)>Save</button>
