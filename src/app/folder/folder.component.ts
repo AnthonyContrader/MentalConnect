@@ -22,7 +22,6 @@ export class FolderComponent implements OnInit {
     this.user = <UserDTO> JSON.parse(localStorage.getItem('currentUser'));
 
     this.getAllBy();
-    console.log(this.folders);
   }
 
   getFolders() {
@@ -30,7 +29,7 @@ export class FolderComponent implements OnInit {
   }
 
   getAllBy(){
-    this.service.getAllBy(this.user.id).subscribe(folders => this.folders = folders);
+    this.service.getAllBy().subscribe(folders => this.folders = folders);
   }
 
   delete(folder: FolderDTO) {
@@ -42,6 +41,7 @@ export class FolderComponent implements OnInit {
   }
 
   insert(folder: FolderDTO) {
+    folder.idUser = this.user.id;
     this.service.insert(folder).subscribe(() => this.getAllBy());
   }
 
