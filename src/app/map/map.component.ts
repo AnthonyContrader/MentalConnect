@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MapService } from 'src/service/map.service';
 import { MapDTO } from 'src/dto/mapdto';
+import { FolderDTO } from 'src/dto/folderdto';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-map',
@@ -11,11 +13,19 @@ export class MapComponent implements OnInit {
 
   maps: MapDTO[];
   maptoinsert: MapDTO = new MapDTO(0, 0, "");
+  folder: FolderDTO;
+  idFolder: number;
 
-  constructor(private service: MapService) { }
+  constructor(private service: MapService, private route: ActivatedRoute) { 
+    
+  }
 
   ngOnInit() {
-    this.getMaps();
+    
+    this.route.params.subscribe(params => {
+      this.idFolder = +params['idFolder'];
+    });
+    this.findByIdFolder(this.idFolder);
   }
 
   getMaps() {
@@ -27,15 +37,17 @@ export class MapComponent implements OnInit {
   }
 
   delete(map: MapDTO) {
-    this.service.delete(map.idMap).subscribe(() => this.getMaps());
+    this.service.delete(map.idMap).subscribe(() => this.findByIdFolder(this.idFolder));
   }
 
   update(map: MapDTO) {
-    this.service.update(map).subscribe(() => this.getMaps());
+    map.idFolder = this.idFolder;
+    this.service.update(map).subscribe(() => this.findByIdFolder(this.idFolder));
   }
 
   insert(map: MapDTO) {
-    this.service.insert(map).subscribe(() => this.getMaps());
+    map.idFolder = this.idFolder;
+    this.service.insert(map).subscribe(() => this.findByIdFolder(this.idFolder));
   }
 
   clear(){

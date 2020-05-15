@@ -1,4 +1,7 @@
 export class MapDTO {
+  static getIdFolder(): number {
+    throw new Error("Method not implemented.");
+  }
 
 idMap : number;
 idFolder : number;
@@ -9,6 +12,8 @@ constructor(idMap: number, idFolder: number, mapName: string) {
     this.idFolder = idFolder;
     this.mapName = mapName;
 }
+
+  
 
 }
 
