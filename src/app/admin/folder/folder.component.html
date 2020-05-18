@@ -30,7 +30,7 @@
 
         <tr *ngFor="let folder of folders">
           <td>
-              <a  [routerLink]="['/map',folder.idFolder]">Open</a>
+            <a [routerLink]="['/map']" [queryParams]="{ idFolder: folder.idFolder }">Open</a>
             <input type="hidden" [(ngModel)]="folder.idUser">
             <input placeholder="insert name folder" [(ngModel)]="folder.nameFolder">
             <button (click)=update(folder)>Save</button>

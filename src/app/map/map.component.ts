@@ -21,10 +21,13 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-    this.route.params.subscribe(params => {
-      this.idFolder = +params['idFolder'];
-    });
+    this.route
+      .queryParams
+      .subscribe(params => {
+        // Defaults to 1 if no query param provided.
+        this.idFolder = +params['idFolder'] || 1;
+      });
+   
     this.findByIdFolder(this.idFolder);
   }
 

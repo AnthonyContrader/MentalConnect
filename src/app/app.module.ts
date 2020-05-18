@@ -8,15 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
 import { MapComponent } from './map/map.component';
-<<<<<<< HEAD
-
 import { LinkComponent } from './link/link.component';
-
-=======
-import { LinkComponent } from './link/link.component';
-import { FolderComponent } from './folder/folder.component';
-import { FormsModule } from '@angular/forms';
->>>>>>> 1e6239b34beb3f2729dfea0fc3edc0479baac41d
 
 
 /** 
@@ -30,12 +22,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     MapComponent,
-    LinkComponent,
-<<<<<<< HEAD
-    
-=======
-    FolderComponent
->>>>>>> 1e6239b34beb3f2729dfea0fc3edc0479baac41d
+    LinkComponent
   ],
   imports: [
     FormsModule,
