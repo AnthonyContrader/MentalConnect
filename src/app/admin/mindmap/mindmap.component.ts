@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MindMapMain } from 'mind-map';
+
 
 const HIERARCHY_RULES = {
   ROOT: {
