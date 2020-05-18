@@ -6,6 +6,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { FolderComponent } from './folder/folder.component';
+import { MapComponent } from './map/map.component';
 import { MindMapComponent } from './mindmap/mindmap.component';
 import { ElixirmapComponent } from './elixirmap/elixirmap.component';
 /**
@@ -17,7 +18,7 @@ import { ElixirmapComponent } from './elixirmap/elixirmap.component';
  * @see AdminRoutingModule
  */
 @NgModule({
-  declarations: [MindMapComponent, AdminDashboardComponent, UsersComponent, WorkInProgressComponent, FolderComponent, ElixirmapComponent],
+  declarations: [MindMapComponent, AdminDashboardComponent, UsersComponent, WorkInProgressComponent, FolderComponent, MapComponent, ElixirmapComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

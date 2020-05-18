@@ -7,7 +7,7 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
-import { MapComponent } from './map/map.component';
+
 import { LinkComponent } from './link/link.component';
 
 
@@ -21,7 +21,7 @@ import { LinkComponent } from './link/link.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent,
+    
     LinkComponent
   ],
   imports: [
