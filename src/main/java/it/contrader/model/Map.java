@@ -32,6 +32,8 @@ public class Map {
 	@Column(unique = true, name="mapname")
 	private String mapName;
 	
+	@Column(name="elixirmap")
+    private String elixirmap;	
 	
 	
 
