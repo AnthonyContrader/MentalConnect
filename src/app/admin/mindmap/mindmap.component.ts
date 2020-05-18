@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 
+=======
+import { MindMapMain, customizeUtil } from 'mind-map';
+>>>>>>> c9e9c4b054fc0083cf47767eb9c410bed73bfabb
 
 const HIERARCHY_RULES = {
   ROOT: {
@@ -171,7 +175,7 @@ export class MindMapComponent implements OnInit {
       return;
     }
  
-    const nodeId = 1;
+    const nodeId = customizeUtil.uuid.newid();
     this.mindMap.addNode(selectedNode, nodeId);
   }
  
