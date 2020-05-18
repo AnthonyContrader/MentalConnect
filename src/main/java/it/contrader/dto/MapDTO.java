@@ -17,6 +17,7 @@ public class MapDTO {
 	
 	private String mapName;
 	
+	private String elixirmap;
 	
 
 }
