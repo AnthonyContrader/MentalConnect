@@ -6,6 +6,7 @@ import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { FolderComponent } from './folder/folder.component';
 import { MindMapComponent } from './mindmap/mindmap.component';
+import { ElixirmapComponent } from './elixirmap/elixirmap.component';
 
 /**
  * Modulo di routing dell'admin. Qui ci sono i percorsi che un admin può seguire:
@@ -26,6 +27,7 @@ const routes: Routes = [
     { path: 'work-in-progress', component: WorkInProgressComponent},
     { path: 'folder', component: FolderComponent },
     { path: 'mindmap', component: MindMapComponent},
+    { path: 'mindelixir', component: ElixirmapComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent}
   ]}
 ];

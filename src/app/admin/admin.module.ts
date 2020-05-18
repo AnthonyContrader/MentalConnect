@@ -7,6 +7,7 @@ import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { FolderComponent } from './folder/folder.component';
 import { MindMapComponent } from './mindmap/mindmap.component';
+import { ElixirmapComponent } from './elixirmap/elixirmap.component';
 /**
  * Modulo dell'admin, qui vengono dichiarate le component che utilizza 
  * l'admin. Questo modulo importa AdminRoutingModule.
@@ -16,7 +17,7 @@ import { MindMapComponent } from './mindmap/mindmap.component';
  * @see AdminRoutingModule
  */
 @NgModule({
-  declarations: [MindMapComponent, AdminDashboardComponent, UsersComponent, WorkInProgressComponent, FolderComponent],
+  declarations: [MindMapComponent, AdminDashboardComponent, UsersComponent, WorkInProgressComponent, FolderComponent, ElixirmapComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
