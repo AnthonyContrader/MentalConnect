@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MapComponent } from './map/map.component';
+
 
 /**
  * Questo è un modulo di routing. Essendo il modulo principale deve UNICAMENTE 
@@ -12,8 +12,8 @@ import { MapComponent } from './map/map.component';
  * @author Vittorio Valent
  */
 const routes: Routes = [
-  { path: '', redirectTo:'/login', pathMatch: 'full' },
-  { path: 'map', component: MapComponent }
+  { path: '', redirectTo:'/login', pathMatch: 'full' }
+  
 ];
 
 @NgModule({

@@ -9,7 +9,9 @@
           <th>
             Map
           </th>
-          
+          <th>
+            Elixir MAp
+          </th>
           <th>
             Edit
           </th>
@@ -18,10 +20,12 @@
           </th>
         </tr>
         <tr>
+          
+          
           <td>
             <input placeholder="mapName" [(ngModel)]="maptoinsert.mapName">
           </td>
-          
+          <td></td>
           <td>
             <button (click)="insert(maptoinsert)">Insert</button>
           </td>
@@ -33,7 +37,10 @@
           <td>
             <input [(ngModel)]="map.mapName">
           </td>
-          
+          <td>
+            <a [routerLink]="['/elixirmap']" [queryParams]="{ idMap: map.idMap }">Open</a>
+            
+          </td>
           
           <td>
             <button (click)=update(map)>Save</button>
