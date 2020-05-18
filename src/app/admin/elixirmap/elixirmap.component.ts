@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import MindElixir, { E } from 'mind-elixir'
+import { MapService } from 'src/service/map.service';
+import { MapDTO } from 'src/dto/mapdto';
 
 @Component({
   selector: 'app-elixirmap',
@@ -8,19 +11,30 @@ import MindElixir, { E } from 'mind-elixir'
 })
 export class ElixirmapComponent implements OnInit {
 
-  constructor() { }
+  idMap : number;
+  map : MapDTO;
+
+  constructor(private service: MapService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
+    this.route
+    .queryParams
+    .subscribe(params => {
+      this.idMap = +params['idMap'] || 1;
+    });
+
+    this.read(this.idMap);
 
     let mind = new MindElixir({
       el: '#map',
       direction: MindElixir.LEFT,
-      data: MindElixir.new('new topic'),
-      draggable: true, // default true
-      contextMenu: true, // default true
-      toolBar: true, // default true
-      nodeMenu: true, // default true
-      keypress: true, // default true
+      data: JSON.parse(this.map.mapName),
+      draggable: true, 
+      contextMenu: true, 
+      toolBar: true, 
+      nodeMenu: true, 
+      keypress: true,
     })
     mind.init()
      
@@ -45,5 +59,10 @@ export class ElixirmapComponent implements OnInit {
     })
 
   }
+
+  read(idMap: number) {
+    this.service.read(idMap).subscribe(map => this.map = map);
+  }
+
 
 }
