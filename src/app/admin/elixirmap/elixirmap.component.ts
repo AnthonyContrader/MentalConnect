@@ -25,43 +25,34 @@ export class ElixirmapComponent implements OnInit {
     });
 
     this.read(this.idMap);
-
-    let mind = new MindElixir({
-      el: '#map',
-      direction: MindElixir.LEFT,
-      data: JSON.parse(this.map.mapName),
-      draggable: true, 
-      contextMenu: true, 
-      toolBar: true, 
-      nodeMenu: true, 
-      keypress: true,
-    })
-    mind.init()
-     
-    // get a node
-    E('node-id')
     
-    mind.bus.addListener('operation', operation => {
-      console.log(operation)
-      // return {
-      //   name: action name,
-      //   obj: target object
-      // }
-     
-      // name: [insertSibling|addChild|removeNode|beginEdit|finishEdit]
-      // obj: target
-     
-      // name: moveNode
-      // obj: {from:target1,to:target2}
-    })
-    mind.bus.addListener('selectNode', node => {
-      console.log(node)
-    })
-
   }
 
   read(idMap: number) {
-    this.service.read(idMap).subscribe(map => this.map = map);
+    this.service.read(idMap).subscribe(map => {
+      this.map = map
+
+      console.log(this.map.elixirmap);
+
+      let mind = new MindElixir({
+        el: '#map',
+        direction: MindElixir.LEFT,
+        data: JSON.parse(this.map.elixirmap),
+        draggable: true, 
+        contextMenu: true, 
+        toolBar: true, 
+        nodeMenu: true, 
+        keypress: true,
+      })
+      mind.init()
+      mind.bus.addListener('operation', operation => {
+        console.log(mind.getAllDataString());
+       
+      })
+      mind.bus.addListener('selectNode', node => {
+        console.log(node)
+      })
+    });
   }
 
 

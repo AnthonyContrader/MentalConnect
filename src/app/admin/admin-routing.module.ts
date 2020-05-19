@@ -29,7 +29,7 @@ const routes: Routes = [
     { path: 'folder', component: FolderComponent },
     { path: 'map', component: MapComponent },
     { path: 'mindmap', component: MindMapComponent},
-    { path: 'mindelixir', component: ElixirmapComponent},
+    { path: 'elixirmap', component: ElixirmapComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent}
   ]}
 ];

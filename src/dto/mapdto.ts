@@ -1,7 +1,4 @@
 export class MapDTO {
-  static getIdFolder(): number {
-    throw new Error("Method not implemented.");
-  }
 
 idMap : number;
 idFolder : number;
