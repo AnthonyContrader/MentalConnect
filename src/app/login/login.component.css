@@ -14,7 +14,7 @@ img{
 
 input, input:hover, input::selection, input:checked, input:focus{
     border: 0;
-    background-color: darkorange;
+    background-color: #1e282d;
     border-radius: 0;
     color: white;
     border-bottom: 1px solid crimson;
@@ -22,7 +22,7 @@ input, input:hover, input::selection, input:checked, input:focus{
 }
 
 .container-fluid{
-    background-color: darkorange;
+    background-color: #1e282d;
     height: 100vh;
 }
 input::placeholder{
@@ -30,14 +30,14 @@ input::placeholder{
 }
 .form-control{
 border: none;
-background-color: darkorange;
+background-color: #1e282d;
 color: white;
 border-bottom: 1px solid white;
 }
 
 .login{
 border: none;
-background-color: darkorange;
+background-color: #1e282d;
 color: white;
 border: 1px solid white;
 border-radius: 2px;

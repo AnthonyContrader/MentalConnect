@@ -8,25 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
 
-
-
-
-import { NodeComponent } from './node/node.component';
-
-
-
-
-
-
-
-
-
-
-
-import { LinkComponent } from './link/link.component';
-
-
-
 /** 
  * Modulo principale dell'applicazione. Qui vengono importati i moduli secondari. L'UNICA component
  * da dichiare qui è l'AppComponent, tutte le altre devono essere dichiarate nel loro modulo e questo importato
@@ -36,24 +17,7 @@ import { LinkComponent } from './link/link.component';
 */
 @NgModule({
   declarations: [
-    AppComponent,
-
-
-    
-
-    
-  
-  NodeComponent,
-
-
-
-    
-
-
-    
-
-    LinkComponent
-
+    AppComponent
   ],
   imports: [
     FormsModule,

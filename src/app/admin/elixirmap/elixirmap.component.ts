@@ -13,6 +13,7 @@ export class ElixirmapComponent implements OnInit {
 
   idMap : number;
   map : MapDTO;
+  mind : MindElixir;
 
   constructor(private service: MapService, private route: ActivatedRoute) { }
 
@@ -28,13 +29,18 @@ export class ElixirmapComponent implements OnInit {
     
   }
 
+  save() {
+    this.map.elixirmap = this.mind.getAllDataString();
+    this.service.update(this.map).subscribe(_ => console.log("Map saved") );
+  }
+
   read(idMap: number) {
     this.service.read(idMap).subscribe(map => {
       this.map = map
 
       console.log(this.map.elixirmap);
 
-      let mind = new MindElixir({
+      this.mind  = new MindElixir({
         el: '#map',
         direction: MindElixir.LEFT,
         data: JSON.parse(this.map.elixirmap),
@@ -44,14 +50,14 @@ export class ElixirmapComponent implements OnInit {
         nodeMenu: true, 
         keypress: true,
       })
-      mind.init()
-      mind.bus.addListener('operation', operation => {
-        console.log(mind.getAllDataString());
-       
-      })
-      mind.bus.addListener('selectNode', node => {
-        console.log(node)
-      })
+
+      this.mind.init()
+
+      this.mind.bus.addListener('operation', operation => {
+         this.save();
+        
+      });
+
     });
   }
 

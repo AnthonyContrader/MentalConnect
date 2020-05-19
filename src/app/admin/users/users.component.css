@@ -22,11 +22,11 @@ td{
 
 
 tr:nth-child(even) {
-	background-color: #ffdb99;
+	background-color: #263238cf;
 }
 
 th {
-	background-color: darkorange;
+	background-color: #1e282d;
 	color: #ffffff;
 }
 
