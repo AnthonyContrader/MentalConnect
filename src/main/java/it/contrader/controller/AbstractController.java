@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.contrader.dto.MapDTO;
 import it.contrader.service.ServiceDTO;
 
 /**

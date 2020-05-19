@@ -15,7 +15,7 @@ public class MapConverter extends AbstractConverter<Map, MapDTO> {
 	public Map toEntity(MapDTO mapDTO) {
 		Map map = null;
 		if (mapDTO != null) {
-			map = new Map(mapDTO.getIdMap(), mapDTO.getIdFolder(), mapDTO.getMapName());
+			map = new Map(mapDTO.getIdMap(), mapDTO.getIdFolder(), mapDTO.getMapName(), mapDTO.getElixirmap());
 		}
 		return map;
 	}
@@ -24,7 +24,7 @@ public class MapConverter extends AbstractConverter<Map, MapDTO> {
 	public MapDTO toDTO(Map map) {
 		MapDTO mapDTO = null;
 		if (map != null) {
-			mapDTO = new MapDTO(map.getIdMap(), map.getIdFolder(), map.getMapName());
+			mapDTO = new MapDTO(map.getIdMap(), map.getIdFolder(), map.getMapName(), map.getElixirmap());
 
 		}
 		return mapDTO;
