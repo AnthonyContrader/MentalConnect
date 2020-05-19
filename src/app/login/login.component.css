@@ -1,0 +1,53 @@
+form{
+    margin-top:270px;
+    width: 55%;
+    padding: 10px;
+    border-radius:0;
+    border-color: rgb(12, 79, 90);
+}
+
+img{
+    position: inherit;
+    width:50%;
+    margin: 12%;
+}
+
+input, input:hover, input::selection, input:checked, input:focus{
+    border: 0;
+    background-color: #1e282d;
+    border-radius: 0;
+    color: white;
+    border-bottom: 1px solid rgb(12, 79, 90);
+    margin: 0px; 
+}
+
+.container-fluid{
+    background-color: #1e282d;
+    height: 100vh;
+}
+input::placeholder{
+    color: white;
+}
+.form-control{
+border: none;
+background-color: #1e282d;
+color: white;
+border-bottom: 1px solid white;
+}
+
+.login{
+border: none;
+background-color: #1e282d;
+color: white;
+border: 1px solid white;
+border-radius: 2px;
+padding-top: 10px;
+padding-right: auto;
+padding-bottom: 10px;
+padding-left: auto;
+}
+
+p{
+font-size: 14px;
+color: white;
+}

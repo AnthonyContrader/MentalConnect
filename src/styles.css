@@ -1,0 +1,14 @@
+button{
+    background-color: rgb(14, 125, 145);
+    color: white;
+    font-size: 2rem !important;
+    margin:  10px !important;
+}/* You can add global styles to this file, and also import other style files */
+
+.lt {
+    width: auto !important;
+}
+
+.map-container .box grp {
+    display: table !important;
+}
