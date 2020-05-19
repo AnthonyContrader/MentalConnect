@@ -34,12 +34,12 @@
         </tr>
               <tr *ngFor="let folder of folders">
           <td>
-<<<<<<< HEAD
+
            <button [routerLink]="['/map']" [queryParams]="{ idFolder: folder.idFolder }">Open</button>
            
-=======
+
             <a [routerLink]="['/admin-dashboard/map']" [queryParams]="{ idFolder: folder.idFolder }">Open</a>
->>>>>>> 561c793d478c007795ca451ad2d0318227e1a8f3
+
             <input type="hidden" [(ngModel)]="folder.idUser">
             <input placeholder="insert name folder" [(ngModel)]="folder.nameFolder">
             <button (click)=update(folder)>Save</button></td>
