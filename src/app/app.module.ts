@@ -8,6 +8,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
 
+
+
+
+import { NodeComponent } from './node/node.component';
+
+
+
+
+
+
+
+
+
+
+
 import { LinkComponent } from './link/link.component';
 
 
@@ -22,7 +37,21 @@ import { LinkComponent } from './link/link.component';
 @NgModule({
   declarations: [
     AppComponent,
+
+
     
+
+    
+  
+  NodeComponent,
+
+
+
+    
+
+
+    
+
     LinkComponent
 
   ],
