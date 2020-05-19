@@ -7,8 +7,23 @@ import { LoginModule } from './login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { AdminModule } from './admin/admin.module';
+<<<<<<< HEAD
+import { MapComponent } from './map/map.component';
+
+import { NodeComponent } from './node/node.component';
+
+
+
+
+
+
+
+
+=======
+>>>>>>> 561c793d478c007795ca451ad2d0318227e1a8f3
 
 import { LinkComponent } from './link/link.component';
+
 
 
 /** 
@@ -21,8 +36,19 @@ import { LinkComponent } from './link/link.component';
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
+    MapComponent,
+
     
+  
+  NodeComponent,
+
+
+=======
+    
+>>>>>>> 561c793d478c007795ca451ad2d0318227e1a8f3
     LinkComponent
+
   ],
   imports: [
     FormsModule,
