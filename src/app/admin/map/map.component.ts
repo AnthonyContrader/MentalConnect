@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class MapComponent implements OnInit {
 
   maps: MapDTO[];
-  maptoinsert: MapDTO = new MapDTO(0, 0, "");
+  maptoinsert: MapDTO = new MapDTO(0, 0, "", "");
   folder: FolderDTO;
   idFolder: number;
 
@@ -54,7 +54,7 @@ export class MapComponent implements OnInit {
   }
 
   clear(){
-    this.maptoinsert = new MapDTO(0, 0, "");
+    this.maptoinsert = new MapDTO(0, 0, "", "");
   }
 
 }

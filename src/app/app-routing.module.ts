@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+<<<<<<< HEAD
 
 
 
@@ -9,6 +10,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { MapComponent } from './map/map.component';
+=======
+>>>>>>> 561c793d478c007795ca451ad2d0318227e1a8f3
 
 
 /**
@@ -21,6 +24,7 @@ import { MapComponent } from './map/map.component';
  * @author Vittorio Valent
  */
 const routes: Routes = [
+<<<<<<< HEAD
   { path: '', redirectTo:'/login', pathMatch: 'full' },
 
 
@@ -32,6 +36,10 @@ const routes: Routes = [
 
 
 
+=======
+  { path: '', redirectTo:'/login', pathMatch: 'full' }
+  
+>>>>>>> 561c793d478c007795ca451ad2d0318227e1a8f3
 ];
 
 @NgModule({

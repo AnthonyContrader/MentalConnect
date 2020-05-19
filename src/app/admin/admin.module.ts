@@ -8,6 +8,7 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
 
 
 import { FolderComponent } from './folder/folder.component';
+<<<<<<< HEAD
 
 
 
@@ -17,6 +18,10 @@ import { FolderComponent } from './folder/folder.component';
 
 
 
+=======
+import { MapComponent } from './map/map.component';
+import { MindMapComponent } from './mindmap/mindmap.component';
+>>>>>>> 561c793d478c007795ca451ad2d0318227e1a8f3
 import { ElixirmapComponent } from './elixirmap/elixirmap.component';
 
 /**
@@ -28,6 +33,7 @@ import { ElixirmapComponent } from './elixirmap/elixirmap.component';
  * @see AdminRoutingModule
  */
 @NgModule({
+<<<<<<< HEAD
 
 
 
@@ -38,6 +44,9 @@ import { ElixirmapComponent } from './elixirmap/elixirmap.component';
 
   declarations: [ AdminDashboardComponent, UsersComponent, WorkInProgressComponent, FolderComponent, ElixirmapComponent],
 
+=======
+  declarations: [MindMapComponent, AdminDashboardComponent, UsersComponent, WorkInProgressComponent, FolderComponent, MapComponent, ElixirmapComponent],
+>>>>>>> 561c793d478c007795ca451ad2d0318227e1a8f3
   imports: [
     CommonModule,
     AdminRoutingModule,

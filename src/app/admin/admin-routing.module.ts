@@ -7,6 +7,7 @@ import { WorkInProgressComponent } from './work-in-progress/work-in-progress.com
 
 
 import { FolderComponent } from './folder/folder.component';
+<<<<<<< HEAD
 
 
 
@@ -14,6 +15,10 @@ import { FolderComponent } from './folder/folder.component';
 
 
 
+=======
+import { MapComponent } from './map/map.component';
+import { MindMapComponent } from './mindmap/mindmap.component';
+>>>>>>> 561c793d478c007795ca451ad2d0318227e1a8f3
 import { ElixirmapComponent } from './elixirmap/elixirmap.component';
 
 
@@ -37,6 +42,7 @@ const routes: Routes = [
 
     { path: 'work-in-progress', component: WorkInProgressComponent},
     { path: 'folder', component: FolderComponent },
+<<<<<<< HEAD
 
     
     { path: 'work-in-progress', component: WorkInProgressComponent},
@@ -45,6 +51,10 @@ const routes: Routes = [
     { path: 'work-in-progress', component: WorkInProgressComponent},
     { path: 'folder', component: FolderComponent },
   
+=======
+    { path: 'map', component: MapComponent },
+    { path: 'mindmap', component: MindMapComponent},
+>>>>>>> 561c793d478c007795ca451ad2d0318227e1a8f3
     { path: 'mindelixir', component: ElixirmapComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent}
 
