@@ -10,7 +10,9 @@ import { AdminModule } from './admin/admin.module';
 
 
 
+
 import { NodeComponent } from './node/node.component';
+
 
 
 
@@ -36,12 +38,16 @@ import { LinkComponent } from './link/link.component';
   declarations: [
     AppComponent,
 
+
     
 
     
   
   NodeComponent,
 
+
+
+    
 
 
     
