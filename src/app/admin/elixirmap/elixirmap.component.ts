@@ -42,7 +42,7 @@ export class ElixirmapComponent implements OnInit {
 
       this.mind  = new MindElixir({
         el: '#map',
-        direction: MindElixir.LEFT,
+        direction: MindElixir.SIDE,
         data: JSON.parse(this.map.elixirmap),
         draggable: true, 
         contextMenu: true, 

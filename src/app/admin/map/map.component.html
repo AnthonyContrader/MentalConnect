@@ -10,13 +10,13 @@
             Map
           </th>
           <th>
-            Elixir MAp
+            Elixir Map
           </th>
           <th>
             Edit
           </th>
           <th>
-            User
+            Delete
           </th>
         </tr>
         <tr>
@@ -38,8 +38,9 @@
             <input [(ngModel)]="map.mapName">
           </td>
           <td>
-            <a [routerLink]="['/admin-dashboard/elixirmap']" [queryParams]="{ idMap: map.idMap }">Open</a>
-            
+            <button [routerLink]="['/admin-dashboard/elixirmap']" [queryParams]="{ idMap: map.idMap }">
+                Open
+            </button>
           </td>
           
           <td>

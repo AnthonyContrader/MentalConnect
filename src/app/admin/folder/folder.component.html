@@ -11,35 +11,35 @@
           </th>
 
           <th>
-            Edit
+            Open
           </th>
-          <th>
-
-          </th>
+          <th></th>
+          <th></th>
        </tr>
         <tr>
-        
-        
-          
-          
           <td>
             <input placeholder="insert name folder" [(ngModel)]="foldertoinsert.nameFolder">
-          </td>
-        <td>
+          </td> 
+          <td></td>
+         <td>
             <button (click)="insert(foldertoinsert)">Insert</button>
           </td>
           <td>
             <button (click)="clear()">Clear</button>
           </td>
+     
         </tr>
-              <tr *ngFor="let folder of folders">
-          <td>
-            <a [routerLink]="['/admin-dashboard/map']" [queryParams]="{ idFolder: folder.idFolder }">Open</a>
-            <input type="hidden" [(ngModel)]="folder.idUser">
-            <input placeholder="insert name folder" [(ngModel)]="folder.nameFolder">
-            <button (click)=update(folder)>Save</button></td>
+        <tr *ngFor="let folder of folders">
           
-            
+          <td>
+            <input placeholder="insert name folder" [(ngModel)]="folder.nameFolder">
+          </td>
+          <td>
+            <button [routerLink]="['/admin-dashboard/map']" [queryParams]="{ idFolder: folder.idFolder }">Open</button>
+          </td>
+          <td>
+            <button (click)=update(folder)>Save</button>
+          </td>
           <td>
             <button (click)="delete(folder)">Delete</button>
           </td>

@@ -3,7 +3,7 @@ form{
     width: 55%;
     padding: 10px;
     border-radius:0;
-    border-color: crimson;
+    border-color: rgb(12, 79, 90);
 }
 
 img{
@@ -17,7 +17,7 @@ input, input:hover, input::selection, input:checked, input:focus{
     background-color: #1e282d;
     border-radius: 0;
     color: white;
-    border-bottom: 1px solid crimson;
+    border-bottom: 1px solid rgb(12, 79, 90);
     margin: 0px; 
 }
 
