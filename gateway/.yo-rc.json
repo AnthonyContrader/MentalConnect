@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "it.contrader.mentalconnect",
+      "nativeLanguage": "it"
+    },
+    "jhipsterVersion": "5.2.1",
+    "applicationType": "gateway",
+    "baseName": "gateway",
+    "packageName": "it.contrader.mentalconnect",
+    "packageFolder": "it/contrader/mentalconnect",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "consul",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "43093154df239e68a7dd9d3cbd47749d8f4b8763",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "it",
+    "languages": [
+      "it"
+    ]
+  }
+}
