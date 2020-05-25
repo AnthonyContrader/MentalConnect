@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "map",
+            "otherEntityName": "map",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "folder"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "idFolder",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "idUser",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nameFolder",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20200521140900",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "folder",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination",
+    "microserviceName": "microserviziapp"
+}
