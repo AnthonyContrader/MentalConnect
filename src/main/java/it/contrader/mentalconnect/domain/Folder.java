@@ -23,15 +23,15 @@ public class Folder implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "id_folder")
+    @Column(name = "idfolder")
     private Long idFolder;
 
     @NotNull
-    @Column(name = "id_user", nullable = false)
+    @Column(name = "iduser", nullable = false)
     private Long idUser;
 
     @NotNull
-    @Column(name = "name_folder", nullable = false)
+    @Column(name = "namefolder", nullable = false)
     private String nameFolder;
 
     @OneToMany(mappedBy = "folder")

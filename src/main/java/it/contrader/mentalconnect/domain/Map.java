@@ -21,18 +21,18 @@ public class Map implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "id_map")
+    @Column(name = "idmap")
     private Long idMap;
 
     @NotNull
-    @Column(name = "id_folder", nullable = false)
+    @Column(name = "idfolder", nullable = false)
     private Long idFolder;
 
     @NotNull
-    @Column(name = "map_name", nullable = false)
+    @Column(name = "mapname", nullable = false)
     private String mapName;
 
-    @Column(name = "elixir_map")
+    @Column(name = "elixirmap")
     private String elixirMap;
 
     @ManyToOne
