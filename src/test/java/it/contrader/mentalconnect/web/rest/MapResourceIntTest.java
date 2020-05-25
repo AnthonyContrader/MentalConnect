@@ -51,6 +51,9 @@ public class MapResourceIntTest {
     private static final String DEFAULT_MAP_NAME = "AAAAAAAAAA";
     private static final String UPDATED_MAP_NAME = "BBBBBBBBBB";
 
+    private static final String DEFAULT_ELIXIR_MAP = "AAAAAAAAAA";
+    private static final String UPDATED_ELIXIR_MAP = "BBBBBBBBBB";
+
     @Autowired
     private MapRepository mapRepository;
 
@@ -99,7 +102,8 @@ public class MapResourceIntTest {
         Map map = new Map()
             .idMap(DEFAULT_ID_MAP)
             .idFolder(DEFAULT_ID_FOLDER)
-            .mapName(DEFAULT_MAP_NAME);
+            .mapName(DEFAULT_MAP_NAME)
+            .elixirMap(DEFAULT_ELIXIR_MAP);
         return map;
     }
 
@@ -127,6 +131,7 @@ public class MapResourceIntTest {
         assertThat(testMap.getIdMap()).isEqualTo(DEFAULT_ID_MAP);
         assertThat(testMap.getIdFolder()).isEqualTo(DEFAULT_ID_FOLDER);
         assertThat(testMap.getMapName()).isEqualTo(DEFAULT_MAP_NAME);
+        assertThat(testMap.getElixirMap()).isEqualTo(DEFAULT_ELIXIR_MAP);
     }
 
     @Test
@@ -200,7 +205,8 @@ public class MapResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(map.getId().intValue())))
             .andExpect(jsonPath("$.[*].idMap").value(hasItem(DEFAULT_ID_MAP.intValue())))
             .andExpect(jsonPath("$.[*].idFolder").value(hasItem(DEFAULT_ID_FOLDER.intValue())))
-            .andExpect(jsonPath("$.[*].mapName").value(hasItem(DEFAULT_MAP_NAME.toString())));
+            .andExpect(jsonPath("$.[*].mapName").value(hasItem(DEFAULT_MAP_NAME.toString())))
+            .andExpect(jsonPath("$.[*].elixirMap").value(hasItem(DEFAULT_ELIXIR_MAP.toString())));
     }
     
 
@@ -217,7 +223,8 @@ public class MapResourceIntTest {
             .andExpect(jsonPath("$.id").value(map.getId().intValue()))
             .andExpect(jsonPath("$.idMap").value(DEFAULT_ID_MAP.intValue()))
             .andExpect(jsonPath("$.idFolder").value(DEFAULT_ID_FOLDER.intValue()))
-            .andExpect(jsonPath("$.mapName").value(DEFAULT_MAP_NAME.toString()));
+            .andExpect(jsonPath("$.mapName").value(DEFAULT_MAP_NAME.toString()))
+            .andExpect(jsonPath("$.elixirMap").value(DEFAULT_ELIXIR_MAP.toString()));
     }
     @Test
     @Transactional
@@ -242,7 +249,8 @@ public class MapResourceIntTest {
         updatedMap
             .idMap(UPDATED_ID_MAP)
             .idFolder(UPDATED_ID_FOLDER)
-            .mapName(UPDATED_MAP_NAME);
+            .mapName(UPDATED_MAP_NAME)
+            .elixirMap(UPDATED_ELIXIR_MAP);
         MapDTO mapDTO = mapMapper.toDto(updatedMap);
 
         restMapMockMvc.perform(put("/api/maps")
@@ -257,6 +265,7 @@ public class MapResourceIntTest {
         assertThat(testMap.getIdMap()).isEqualTo(UPDATED_ID_MAP);
         assertThat(testMap.getIdFolder()).isEqualTo(UPDATED_ID_FOLDER);
         assertThat(testMap.getMapName()).isEqualTo(UPDATED_MAP_NAME);
+        assertThat(testMap.getElixirMap()).isEqualTo(UPDATED_ELIXIR_MAP);
     }
 
     @Test

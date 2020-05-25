@@ -32,6 +32,9 @@ public class Map implements Serializable {
     @Column(name = "map_name", nullable = false)
     private String mapName;
 
+    @Column(name = "elixir_map")
+    private String elixirMap;
+
     @ManyToOne
     @JsonIgnoreProperties("")
     private Folder folder;
@@ -84,6 +87,19 @@ public class Map implements Serializable {
         this.mapName = mapName;
     }
 
+    public String getElixirMap() {
+        return elixirMap;
+    }
+
+    public Map elixirMap(String elixirMap) {
+        this.elixirMap = elixirMap;
+        return this;
+    }
+
+    public void setElixirMap(String elixirMap) {
+        this.elixirMap = elixirMap;
+    }
+
     public Folder getFolder() {
         return folder;
     }
@@ -125,6 +141,7 @@ public class Map implements Serializable {
             ", idMap=" + getIdMap() +
             ", idFolder=" + getIdFolder() +
             ", mapName='" + getMapName() + "'" +
+            ", elixirMap='" + getElixirMap() + "'" +
             "}";
     }
 }
