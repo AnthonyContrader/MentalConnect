@@ -1,0 +1,17 @@
+it\contrader\mentalconnect\config\StaticResourcesWebConfigurerTest.class
+it\contrader\mentalconnect\config\WebConfigurerTest.class
+it\contrader\mentalconnect\security\jwt\TokenProviderTest.class
+it\contrader\mentalconnect\web\rest\errors\ExceptionTranslatorIT.class
+it\contrader\mentalconnect\ArchTest.class
+it\contrader\mentalconnect\config\WebConfigurerTestController.class
+it\contrader\mentalconnect\web\rest\errors\ExceptionTranslatorTestController.class
+it\contrader\mentalconnect\security\jwt\JWTFilterTest.class
+it\contrader\mentalconnect\web\rest\errors\ExceptionTranslatorTestController$TestResponseStatusException.class
+it\contrader\mentalconnect\repository\timezone\DateTimeWrapperRepository.class
+it\contrader\mentalconnect\web\rest\errors\ExceptionTranslatorTestController$TestDTO.class
+it\contrader\mentalconnect\web\rest\TestUtil.class
+it\contrader\mentalconnect\security\SecurityUtilsUnitTest.class
+it\contrader\mentalconnect\config\timezone\HibernateTimeZoneIT.class
+it\contrader\mentalconnect\web\rest\TestUtil$ZonedDateTimeMatcher.class
+it\contrader\mentalconnect\repository\timezone\DateTimeWrapper.class
+it\contrader\mentalconnect\repository\timezone\DateTimeWrapper_.class
