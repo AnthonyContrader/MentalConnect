@@ -51,7 +51,7 @@ spring:
       auto-commit: false
   h2:
     console:
-      enabled: false
+      enabled: true
   jpa:
     show-sql: true
   liquibase:

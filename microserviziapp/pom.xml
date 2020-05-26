@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Microserviziapp</name>
-
+	
     <repositories>
         <!-- jhipster-needle-maven-repository -->
     </repositories>
@@ -20,6 +20,7 @@
     <!-- jhipster-needle-distribution-management -->
 
     <properties>
+   	
         <!-- Build properties -->
         <maven.version>3.3.9</maven.version>
         <java.version>1.8</java.version>
@@ -420,6 +421,14 @@
         </plugins>
         <pluginManagement>
             <plugins>
+		    	<plugin>
+		            <artifactId>maven-compiler-plugin</artifactId>
+		            <version>3.1</version>
+		            <configuration>
+		                <fork>true</fork>
+		                <executable>C:\Program Files\Java\jdk1.8.0_202\bin\javac.exe</executable>
+		            </configuration>
+		        </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>

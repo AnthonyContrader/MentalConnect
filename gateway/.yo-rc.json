@@ -4,7 +4,7 @@
       "packageName": "it.contrader.mentalconnect",
       "nativeLanguage": "it"
     },
-    "jhipsterVersion": "5.2.1",
+    "jhipsterVersion": "6.9.0",
     "applicationType": "gateway",
     "baseName": "gateway",
     "packageName": "it.contrader.mentalconnect",
@@ -13,7 +13,7 @@
     "authenticationType": "jwt",
     "cacheProvider": "hazelcast",
     "enableHibernateCache": false,
-    "websocket": false,
+    "websocket": "spring-websocket",
     "databaseType": "sql",
     "devDatabaseType": "h2Disk",
     "prodDatabaseType": "mysql",
@@ -22,16 +22,22 @@
     "serviceDiscoveryType": "consul",
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "43093154df239e68a7dd9d3cbd47749d8f4b8763",
-    "clientFramework": "angularX",
+    "jwtSecretKey": "OWEzYTg1MWJiN2M1NjYxN2ZjYTk1ZGZiMzI3Y2VlZjE0ZWZjMzRiNDIzMmE4ODRlODBkMmQxZGFhMDI2ZGI5M2MyMTU5NTAwMjQ3MjJkZjdmYTQ5Yjk4Y2Q5MmEzNGIwMTM3YTdmZTVlZDNmNWQ5OWU0N2RhMjkyOGE1ZTk0ZjM=",
+    "embeddableLaunchScript": false,
     "useSass": true,
     "clientPackageManager": "npm",
-    "testFrameworks": [],
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1590416644366,
+    "testFrameworks": ["protractor"],
     "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
     "enableTranslation": true,
     "nativeLanguage": "it",
-    "languages": [
-      "it"
-    ]
+    "languages": ["it"],
+    "blueprints": []
   }
 }
