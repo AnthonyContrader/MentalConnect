@@ -1,15 +1,15 @@
 export class MapDTO {
 
-idMap : number;
-idFolder : number;
+id? : number;
+idfolder : number;
 mapName : string;
-elixirmap : string;
+elixirMap : string;
 
-constructor(idMap: number, idFolder: number, mapName: string, elixirmap: string) {
-    this.idMap = idMap;
-    this.idFolder = idFolder;
+constructor(id: number, idfolder: number, mapName: string, elixirMap: string) {
+    this.id = id;
+    this.idfolder = idfolder;
     this.mapName = mapName;
-    this.elixirmap = elixirmap;
+    this.elixirMap = elixirMap;
 }
 
   

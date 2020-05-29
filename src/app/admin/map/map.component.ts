@@ -25,9 +25,9 @@ export class MapComponent implements OnInit {
       .queryParams
       .subscribe(params => {
         // Defaults to 1 if no query param provided.
-        this.idFolder = +params['idFolder'] || 1;
+        this.idFolder = +params['idfolder'] || 1;
       });
-   
+      console.log("Folder: "+this.idFolder);
     this.findByIdFolder(this.idFolder);
   }
 
@@ -40,17 +40,22 @@ export class MapComponent implements OnInit {
   }
 
   delete(map: MapDTO) {
-    this.service.delete(map.idMap).subscribe(() => this.findByIdFolder(this.idFolder));
+    this.service.delete(map.id).subscribe(() => this.findByIdFolder(this.idFolder));
   }
 
   update(map: MapDTO) {
-    map.idFolder = this.idFolder;
+    map.idfolder = this.idFolder;
     this.service.update(map).subscribe(() => this.findByIdFolder(this.idFolder));
   }
 
   insert(map: MapDTO) {
-    map.idFolder = this.idFolder;
-    this.service.insert(map).subscribe(() => this.findByIdFolder(this.idFolder));
+    map.idfolder = this.idFolder;
+    if (this.idFolder != null) {
+      console.log(map.idfolder);
+      map.id = null;
+      map.elixirMap = `{"nodeData":{"expanded":true,"children":[{"topic":"Nodo","id":"25b995215f562897","direction":0}],"topic":"Mappa","style":{"color":"#2ecc71","background":"#c0392c"}},"linkData":{}}`;
+      this.service.insert(map).subscribe(() => this.findByIdFolder(this.idFolder));
+    }
   }
 
   clear(){

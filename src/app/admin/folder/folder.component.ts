@@ -13,15 +13,16 @@ export class FolderComponent implements OnInit {
 
   folders: FolderDTO[];
   user: UserDTO;
-  foldertoinsert: FolderDTO = new FolderDTO(0,0,"" );
+  foldertoinsert: FolderDTO = new FolderDTO(0,"",0);
 
   constructor(private service: FolderService) { }
 
   ngOnInit() {
     
-    this.user = <UserDTO> JSON.parse(localStorage.getItem('currentUser'));
-
+    this.user = <UserDTO> JSON.parse(localStorage.getItem('AUTOKEN'));
+    
     this.getAllBy();
+    
   }
 
   getFolders() {
@@ -33,7 +34,7 @@ export class FolderComponent implements OnInit {
   }
 
   delete(folder: FolderDTO) {
-    this.service.delete(folder.idFolder).subscribe(() => this.getAllBy());
+    this.service.delete(folder.id).subscribe(() => this.getAllBy());
   }
 
   update(folder: FolderDTO) {
@@ -41,12 +42,13 @@ export class FolderComponent implements OnInit {
   }
 
   insert(folder: FolderDTO) {
-    folder.idUser = this.user.id;
+    folder.iduser = this.user.id;
+    folder.id = null;
     this.service.insert(folder).subscribe(() => this.getAllBy());
   }
 
   clear(){
-    this.foldertoinsert = new FolderDTO(0,0,"");
+    this.foldertoinsert = new FolderDTO(0,"", 0);
   }
 
 }

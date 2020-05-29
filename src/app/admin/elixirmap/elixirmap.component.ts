@@ -22,15 +22,16 @@ export class ElixirmapComponent implements OnInit {
     this.route
     .queryParams
     .subscribe(params => {
-      this.idMap = +params['idMap'] || 1;
+      this.idMap = +params['idmap'] || 1;
     });
-
+    console.log("Mappa: "+this.idMap)
     this.read(this.idMap);
     
   }
 
   save() {
-    this.map.elixirmap = this.mind.getAllDataString();
+
+    this.map.elixirMap = this.mind.getAllDataString();
     this.service.update(this.map).subscribe(_ => console.log("Map saved") );
   }
 
@@ -38,12 +39,12 @@ export class ElixirmapComponent implements OnInit {
     this.service.read(idMap).subscribe(map => {
       this.map = map
 
-      console.log(this.map.elixirmap);
+      console.log(this.map.elixirMap);
 
       this.mind  = new MindElixir({
         el: '#map',
         direction: MindElixir.SIDE,
-        data: JSON.parse(this.map.elixirmap),
+        data: JSON.parse(this.map.elixirMap),
         draggable: true, 
         contextMenu: true, 
         toolBar: true, 

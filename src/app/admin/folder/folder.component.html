@@ -35,7 +35,7 @@
             <input placeholder="insert name folder" [(ngModel)]="folder.nameFolder">
           </td>
           <td>
-            <button [routerLink]="['/admin-dashboard/map']" [queryParams]="{ idFolder: folder.idFolder }">Open</button>
+            <button [routerLink]="['/admin-dashboard/map']" [queryParams]="{ idfolder: folder.id }">Open</button>
           </td>
           <td>
             <button (click)=update(folder)>Save</button>

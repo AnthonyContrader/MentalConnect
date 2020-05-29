@@ -1,12 +1,12 @@
 export class FolderDTO{
 
-    idUser : number ;
-    idFolder : number;
+    id? : number;
     nameFolder :string;
-
-    constructor(idUser: number, idFolder: number, nameFolder: string) {
-        this.idUser = idUser;
-        this.idFolder = idFolder;
+    iduser : number;
+    
+    constructor(id: number, nameFolder: string, iduser: number,) {
+        this.iduser = iduser;
+        this.id = id;
         this.nameFolder = nameFolder;
     }
 }
