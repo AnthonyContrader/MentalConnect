@@ -61,6 +61,13 @@ public class FolderServiceImpl implements FolderService {
             .map(folderMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Page<FolderDTO> findAllByUser(Long iduser,Pageable pageable) {
+        log.debug("Request to get all Folders");
+        return folderRepository.findAllByiduser(iduser, pageable)
+            .map(folderMapper::toDto);
+    }
+    
 
     /**
      * Get one folder by id.

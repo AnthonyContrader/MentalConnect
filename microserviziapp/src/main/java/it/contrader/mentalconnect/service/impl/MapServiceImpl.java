@@ -3,6 +3,7 @@ package it.contrader.mentalconnect.service.impl;
 import it.contrader.mentalconnect.service.MapService;
 import it.contrader.mentalconnect.domain.Map;
 import it.contrader.mentalconnect.repository.MapRepository;
+import it.contrader.mentalconnect.service.dto.FolderDTO;
 import it.contrader.mentalconnect.service.dto.MapDTO;
 import it.contrader.mentalconnect.service.mapper.MapMapper;
 import org.slf4j.Logger;
@@ -61,6 +62,12 @@ public class MapServiceImpl implements MapService {
             .map(mapMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Page<MapDTO> findAllByFolder(Long iduser,Pageable pageable) {
+        log.debug("Request to get all Maps by Folder");
+        return mapRepository.findAllByidfolder(iduser, pageable)
+            .map(mapMapper::toDto);
+    }
 
     /**
      * Get one map by id.

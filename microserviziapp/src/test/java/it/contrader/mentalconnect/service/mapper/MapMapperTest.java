@@ -10,7 +10,7 @@ public class MapMapperTest {
 
     @BeforeEach
     public void setUp() {
-        //mapMapper = new MapMapperImpl();
+        mapMapper = new MapMapperImpl();
     }
 
     @Test

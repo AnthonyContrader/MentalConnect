@@ -20,8 +20,11 @@ public class Folder implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "namefolder", nullable = false)
+    @Column(name = "name_folder", nullable = false)
     private String nameFolder;
+
+    @Column(name = "iduser")
+    private Long iduser;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -43,6 +46,19 @@ public class Folder implements Serializable {
 
     public void setNameFolder(String nameFolder) {
         this.nameFolder = nameFolder;
+    }
+
+    public Long getIduser() {
+        return iduser;
+    }
+
+    public Folder iduser(Long iduser) {
+        this.iduser = iduser;
+        return this;
+    }
+
+    public void setIduser(Long iduser) {
+        this.iduser = iduser;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -68,6 +84,7 @@ public class Folder implements Serializable {
         return "Folder{" +
             "id=" + getId() +
             ", nameFolder='" + getNameFolder() + "'" +
+            ", iduser=" + getIduser() +
             "}";
     }
 }

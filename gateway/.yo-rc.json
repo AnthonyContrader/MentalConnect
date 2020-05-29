@@ -2,7 +2,8 @@
   "generator-jhipster": {
     "promptValues": {
       "packageName": "it.contrader.mentalconnect",
-      "nativeLanguage": "it"
+      "nativeLanguage": "it",
+      "microservicePath": "C:\\Users\\fede_\\Desktop\\Progetti\\mentalconnect-microservices\\microserviziapp"
     },
     "jhipsterVersion": "6.9.0",
     "applicationType": "gateway",

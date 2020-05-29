@@ -20,11 +20,15 @@ public class Map implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "mapname", nullable = false)
+    @Column(name = "map_name", nullable = false)
     private String mapName;
 
-    @Column(name = "elixirmap")
+    @Column(name = "elixir_map")
     private String elixirMap;
+
+    @NotNull
+    @Column(name = "idfolder", nullable = false)
+    private Long idfolder;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -60,6 +64,19 @@ public class Map implements Serializable {
     public void setElixirMap(String elixirMap) {
         this.elixirMap = elixirMap;
     }
+
+    public Long getIdfolder() {
+        return idfolder;
+    }
+
+    public Map idfolder(Long idfolder) {
+        this.idfolder = idfolder;
+        return this;
+    }
+
+    public void setIdfolder(Long idfolder) {
+        this.idfolder = idfolder;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -85,6 +102,7 @@ public class Map implements Serializable {
             "id=" + getId() +
             ", mapName='" + getMapName() + "'" +
             ", elixirMap='" + getElixirMap() + "'" +
+            ", idfolder=" + getIdfolder() +
             "}";
     }
 }

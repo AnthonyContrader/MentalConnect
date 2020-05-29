@@ -7,6 +7,10 @@
       "fieldName": "nameFolder",
       "fieldType": "String",
       "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "iduser",
+      "fieldType": "Long"
     }
   ],
   "changelogDate": "20200525143834",

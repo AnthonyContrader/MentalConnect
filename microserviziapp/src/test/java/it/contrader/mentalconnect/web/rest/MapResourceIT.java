@@ -38,6 +38,9 @@ public class MapResourceIT {
     private static final String DEFAULT_ELIXIR_MAP = "AAAAAAAAAA";
     private static final String UPDATED_ELIXIR_MAP = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_IDFOLDER = 1L;
+    private static final Long UPDATED_IDFOLDER = 2L;
+
     @Autowired
     private MapRepository mapRepository;
 
@@ -64,7 +67,8 @@ public class MapResourceIT {
     public static Map createEntity(EntityManager em) {
         Map map = new Map()
             .mapName(DEFAULT_MAP_NAME)
-            .elixirMap(DEFAULT_ELIXIR_MAP);
+            .elixirMap(DEFAULT_ELIXIR_MAP)
+            .idfolder(DEFAULT_IDFOLDER);
         return map;
     }
     /**
@@ -76,7 +80,8 @@ public class MapResourceIT {
     public static Map createUpdatedEntity(EntityManager em) {
         Map map = new Map()
             .mapName(UPDATED_MAP_NAME)
-            .elixirMap(UPDATED_ELIXIR_MAP);
+            .elixirMap(UPDATED_ELIXIR_MAP)
+            .idfolder(UPDATED_IDFOLDER);
         return map;
     }
 
@@ -102,6 +107,7 @@ public class MapResourceIT {
         Map testMap = mapList.get(mapList.size() - 1);
         assertThat(testMap.getMapName()).isEqualTo(DEFAULT_MAP_NAME);
         assertThat(testMap.getElixirMap()).isEqualTo(DEFAULT_ELIXIR_MAP);
+        assertThat(testMap.getIdfolder()).isEqualTo(DEFAULT_IDFOLDER);
     }
 
     @Test
@@ -147,6 +153,26 @@ public class MapResourceIT {
 
     @Test
     @Transactional
+    public void checkIdfolderIsRequired() throws Exception {
+        int databaseSizeBeforeTest = mapRepository.findAll().size();
+        // set the field null
+        map.setIdfolder(null);
+
+        // Create the Map, which fails.
+        MapDTO mapDTO = mapMapper.toDto(map);
+
+
+        restMapMockMvc.perform(post("/api/maps")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(mapDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Map> mapList = mapRepository.findAll();
+        assertThat(mapList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllMaps() throws Exception {
         // Initialize the database
         mapRepository.saveAndFlush(map);
@@ -157,7 +183,8 @@ public class MapResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(map.getId().intValue())))
             .andExpect(jsonPath("$.[*].mapName").value(hasItem(DEFAULT_MAP_NAME)))
-            .andExpect(jsonPath("$.[*].elixirMap").value(hasItem(DEFAULT_ELIXIR_MAP)));
+            .andExpect(jsonPath("$.[*].elixirMap").value(hasItem(DEFAULT_ELIXIR_MAP)))
+            .andExpect(jsonPath("$.[*].idfolder").value(hasItem(DEFAULT_IDFOLDER.intValue())));
     }
     
     @Test
@@ -172,7 +199,8 @@ public class MapResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(map.getId().intValue()))
             .andExpect(jsonPath("$.mapName").value(DEFAULT_MAP_NAME))
-            .andExpect(jsonPath("$.elixirMap").value(DEFAULT_ELIXIR_MAP));
+            .andExpect(jsonPath("$.elixirMap").value(DEFAULT_ELIXIR_MAP))
+            .andExpect(jsonPath("$.idfolder").value(DEFAULT_IDFOLDER.intValue()));
     }
     @Test
     @Transactional
@@ -196,7 +224,8 @@ public class MapResourceIT {
         em.detach(updatedMap);
         updatedMap
             .mapName(UPDATED_MAP_NAME)
-            .elixirMap(UPDATED_ELIXIR_MAP);
+            .elixirMap(UPDATED_ELIXIR_MAP)
+            .idfolder(UPDATED_IDFOLDER);
         MapDTO mapDTO = mapMapper.toDto(updatedMap);
 
         restMapMockMvc.perform(put("/api/maps")
@@ -210,6 +239,7 @@ public class MapResourceIT {
         Map testMap = mapList.get(mapList.size() - 1);
         assertThat(testMap.getMapName()).isEqualTo(UPDATED_MAP_NAME);
         assertThat(testMap.getElixirMap()).isEqualTo(UPDATED_ELIXIR_MAP);
+        assertThat(testMap.getIdfolder()).isEqualTo(UPDATED_IDFOLDER);
     }
 
     @Test

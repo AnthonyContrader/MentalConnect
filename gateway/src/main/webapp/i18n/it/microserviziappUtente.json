@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "microserviziappUtente": {
+      "home": {
+        "title": "Utentes",
+        "createLabel": "Genera un nuovo Utente",
+        "createOrEditLabel": "Genera o modifica un Utente",
+        "notFound": "No Utentes found"
+      },
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Utente {{ id }}?"
+      },
+      "detail": {
+        "title": "Utente"
+      },
+      "username": "Username",
+      "password": "Password",
+      "usertype": "Usertype"
+    }
+  },
+  "microserviziappApp": {
+    "microserviziappUtente": {
+      "created": "&Egrave; stato generato un nuovo Utente con identificatore { param }}",
+      "updated": "&Egrave; stato aggiornato Utente identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Utente con identificatore {{ param }}"
+    }
+  }
+}

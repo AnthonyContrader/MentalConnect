@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-05-25T17:34:18+0200",
+    date = "2020-05-29T12:38:26+0200",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 1.8.0_251 (Oracle Corporation)"
 )
 @Component
@@ -25,6 +25,7 @@ public class FolderMapperImpl implements FolderMapper {
 
         folder.setId( dto.getId() );
         folder.setNameFolder( dto.getNameFolder() );
+        folder.setIduser( dto.getIduser() );
 
         return folder;
     }
@@ -39,6 +40,7 @@ public class FolderMapperImpl implements FolderMapper {
 
         folderDTO.setId( entity.getId() );
         folderDTO.setNameFolder( entity.getNameFolder() );
+        folderDTO.setIduser( entity.getIduser() );
 
         return folderDTO;
     }

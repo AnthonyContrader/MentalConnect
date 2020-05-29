@@ -1,9 +1,9 @@
 package it.contrader.mentalconnect.web.rest;
 
 import it.contrader.mentalconnect.service.MapService;
-import it.contrader.mentalconnect.web.rest.errors.BadRequestAlertException;
+import it.contrader.mentalconnect.service.dto.FolderDTO;
 import it.contrader.mentalconnect.service.dto.MapDTO;
-
+import it.contrader.mentalconnect.service.impl.MapServiceImpl;
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -11,7 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -38,9 +40,9 @@ public class MapResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final MapService mapService;
+    private final MapServiceImpl mapService;
 
-    public MapResource(MapService mapService) {
+    public MapResource(MapServiceImpl mapService) {
         this.mapService = mapService;
     }
 
@@ -55,7 +57,8 @@ public class MapResource {
     public ResponseEntity<MapDTO> createMap(@Valid @RequestBody MapDTO mapDTO) throws URISyntaxException {
         log.debug("REST request to save Map : {}", mapDTO);
         if (mapDTO.getId() != null) {
-            throw new BadRequestAlertException("A new map cannot already have an ID", ENTITY_NAME, "idexists");
+            //throw new BadRequestAlertException("A new map cannot already have an ID", ENTITY_NAME, "idexists");
+        
         }
         MapDTO result = mapService.save(mapDTO);
         return ResponseEntity.created(new URI("/api/maps/" + result.getId()))
@@ -76,7 +79,7 @@ public class MapResource {
     public ResponseEntity<MapDTO> updateMap(@Valid @RequestBody MapDTO mapDTO) throws URISyntaxException {
         log.debug("REST request to update Map : {}", mapDTO);
         if (mapDTO.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+            //throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
         MapDTO result = mapService.save(mapDTO);
         return ResponseEntity.ok()
@@ -97,6 +100,18 @@ public class MapResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+    
+    @GetMapping("/mapsByFolder/{id}")
+    public ResponseEntity<List<MapDTO>> getFoldersByUser(@PathVariable Long id) {
+        log.debug("REST request to get a page of Maps by Folder");
+        Pageable pageable = PageRequest.of(0, 20, Sort.by("id"));
+        Page<MapDTO> page = mapService.findAllByFolder(id,pageable);
+        
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(),page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+  
+    }
+    
 
     /**
      * {@code GET  /maps/:id} : get the "id" map.

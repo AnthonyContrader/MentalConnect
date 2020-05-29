@@ -35,6 +35,9 @@ public class FolderResourceIT {
     private static final String DEFAULT_NAME_FOLDER = "AAAAAAAAAA";
     private static final String UPDATED_NAME_FOLDER = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_IDUSER = 1L;
+    private static final Long UPDATED_IDUSER = 2L;
+
     @Autowired
     private FolderRepository folderRepository;
 
@@ -60,7 +63,8 @@ public class FolderResourceIT {
      */
     public static Folder createEntity(EntityManager em) {
         Folder folder = new Folder()
-            .nameFolder(DEFAULT_NAME_FOLDER);
+            .nameFolder(DEFAULT_NAME_FOLDER)
+            .iduser(DEFAULT_IDUSER);
         return folder;
     }
     /**
@@ -71,7 +75,8 @@ public class FolderResourceIT {
      */
     public static Folder createUpdatedEntity(EntityManager em) {
         Folder folder = new Folder()
-            .nameFolder(UPDATED_NAME_FOLDER);
+            .nameFolder(UPDATED_NAME_FOLDER)
+            .iduser(UPDATED_IDUSER);
         return folder;
     }
 
@@ -96,6 +101,7 @@ public class FolderResourceIT {
         assertThat(folderList).hasSize(databaseSizeBeforeCreate + 1);
         Folder testFolder = folderList.get(folderList.size() - 1);
         assertThat(testFolder.getNameFolder()).isEqualTo(DEFAULT_NAME_FOLDER);
+        assertThat(testFolder.getIduser()).isEqualTo(DEFAULT_IDUSER);
     }
 
     @Test
@@ -150,7 +156,8 @@ public class FolderResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(folder.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nameFolder").value(hasItem(DEFAULT_NAME_FOLDER)));
+            .andExpect(jsonPath("$.[*].nameFolder").value(hasItem(DEFAULT_NAME_FOLDER)))
+            .andExpect(jsonPath("$.[*].iduser").value(hasItem(DEFAULT_IDUSER.intValue())));
     }
     
     @Test
@@ -164,7 +171,8 @@ public class FolderResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(folder.getId().intValue()))
-            .andExpect(jsonPath("$.nameFolder").value(DEFAULT_NAME_FOLDER));
+            .andExpect(jsonPath("$.nameFolder").value(DEFAULT_NAME_FOLDER))
+            .andExpect(jsonPath("$.iduser").value(DEFAULT_IDUSER.intValue()));
     }
     @Test
     @Transactional
@@ -187,7 +195,8 @@ public class FolderResourceIT {
         // Disconnect from session so that the updates on updatedFolder are not directly saved in db
         em.detach(updatedFolder);
         updatedFolder
-            .nameFolder(UPDATED_NAME_FOLDER);
+            .nameFolder(UPDATED_NAME_FOLDER)
+            .iduser(UPDATED_IDUSER);
         FolderDTO folderDTO = folderMapper.toDto(updatedFolder);
 
         restFolderMockMvc.perform(put("/api/folders")
@@ -200,6 +209,7 @@ public class FolderResourceIT {
         assertThat(folderList).hasSize(databaseSizeBeforeUpdate);
         Folder testFolder = folderList.get(folderList.size() - 1);
         assertThat(testFolder.getNameFolder()).isEqualTo(UPDATED_NAME_FOLDER);
+        assertThat(testFolder.getIduser()).isEqualTo(UPDATED_IDUSER);
     }
 
     @Test

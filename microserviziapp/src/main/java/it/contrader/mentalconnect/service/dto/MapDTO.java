@@ -15,6 +15,9 @@ public class MapDTO implements Serializable {
 
     private String elixirMap;
 
+    @NotNull
+    private Long idfolder;
+
     
     public Long getId() {
         return id;
@@ -38,6 +41,14 @@ public class MapDTO implements Serializable {
 
     public void setElixirMap(String elixirMap) {
         this.elixirMap = elixirMap;
+    }
+
+    public Long getIdfolder() {
+        return idfolder;
+    }
+
+    public void setIdfolder(Long idfolder) {
+        this.idfolder = idfolder;
     }
 
     @Override
@@ -64,6 +75,7 @@ public class MapDTO implements Serializable {
             "id=" + getId() +
             ", mapName='" + getMapName() + "'" +
             ", elixirMap='" + getElixirMap() + "'" +
+            ", idfolder=" + getIdfolder() +
             "}";
     }
 }

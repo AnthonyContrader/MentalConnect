@@ -13,6 +13,8 @@ public class FolderDTO implements Serializable {
     @NotNull
     private String nameFolder;
 
+    private Long iduser;
+
     
     public Long getId() {
         return id;
@@ -28,6 +30,14 @@ public class FolderDTO implements Serializable {
 
     public void setNameFolder(String nameFolder) {
         this.nameFolder = nameFolder;
+    }
+
+    public Long getIduser() {
+        return iduser;
+    }
+
+    public void setIduser(Long iduser) {
+        this.iduser = iduser;
     }
 
     @Override
@@ -53,6 +63,7 @@ public class FolderDTO implements Serializable {
         return "FolderDTO{" +
             "id=" + getId() +
             ", nameFolder='" + getNameFolder() + "'" +
+            ", iduser=" + getIduser() +
             "}";
     }
 }

@@ -14,6 +14,14 @@ import { RouterModule } from '@angular/router';
         },
       },
       {
+        path: 'maps',
+        loadChildren: () => import('./map/mapdto').then(m => m.MapDTO),
+      },
+      {
+        path: 'folders',
+        loadChildren: () => import('./folder/folderdto').then(m => m.FolderDTO),
+      },
+      {
         path: 'audits',
         loadChildren: () => import('./audits/audits.module').then(m => m.AuditsModule),
       },
