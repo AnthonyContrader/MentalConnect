@@ -36,6 +36,9 @@ spring:
     serialization:
       indent-output: true
   cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
     consul:
       discovery:
         prefer-ip-address: true
@@ -92,7 +95,7 @@ jhipster:
       limit: 100000
       duration-in-seconds: 3600
     authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
-      app1: /api,/v2/api-docs # recommended dev configuration
+      microserviziapp: /api,/v2/api-docs # recommended dev configuration
   cache: # Cache configuration
     hazelcast: # Hazelcast distributed cache
       time-to-live-seconds: 3600
@@ -102,13 +105,13 @@ jhipster:
         update-interval: 3
         url: http://localhost:8180/hazelcast-mancenter
   # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
-  cors:
-    allowed-origins: '*'
-    allowed-methods: '*'
-    allowed-headers: '*'
-    exposed-headers: 'Authorization,Link,X-Total-Count'
-    allow-credentials: true
-    max-age: 1800
+  # cors:
+  #  allowed-origins: '*'
+  #  allowed-methods: '*'
+  #  allowed-headers: '*'
+  #  exposed-headers: 'Authorization,Link,X-Total-Count'
+  #  allow-credentials: true
+  #  max-age: 1800
   security:
     authentication:
       jwt:
